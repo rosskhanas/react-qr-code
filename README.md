@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/opensource-cards/react-qr-code.svg)](https://david-dm.org/opensource-cards/react-qr-code)
 [![devDependency Status](https://david-dm.org/opensource-cards/react-qr-code/dev-status.svg)](https://david-dm.org/opensource-cards/react-qr-code#info=devDependencies)
 
-Library for generation of harmonious color themes. Include react components for picking colors. This library suppose to work with React and React Native (wasn't tested).
+A <QRCode /> component for React. This library suppose to work with React and React Native (wasn't tested).
 
 ### Installation
 
