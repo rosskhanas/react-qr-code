@@ -1,0 +1,14 @@
+# Compiled files
+lib
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules
+
+# JetBrains
+.idea
+
+# Visual Studio Code
+.vscode
