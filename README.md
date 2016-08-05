@@ -23,13 +23,19 @@ import Rectangle from 'react-art/lib/Rectangle.art';
 import ReactDOM from 'react-dom';
 import { QRCode } from 'react-qr-code';
 
+// create a HOC for web
+const getQRCodeHOC = (QRCodeComponent) ⇒ ((props) => (
+    <QRCodeComponent
+        Rectangle={Rectangle}
+        Surface={ReactART.Surface}
+        Transform={ReactART.Transform}
+        {...props}
+    />
+));
+const QRCodeHOC = getQRCodeHOC(QRCode);
+
 ReactDOM.render(
-	<QRCode
-		Rectangle={Rectangle}
-		Surface={ReactART.Surface}
-		Transform={ReactART.Transform}
-		value="hey"
-	/>,
+	<QRCodeHOC value="hey" />,
 	document.getElementById('Container')
 );
 ```
