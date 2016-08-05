@@ -51,10 +51,6 @@ prop        | type                         | default value
 
 * Main ([source](https://github.com/opensource-cards/react-qr-code/tree/master/examples/main))
 
-### Web site
-
-http://opensource-cards.github.io/react-qr-code
-
 ### License
 
 MIT
