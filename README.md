@@ -48,10 +48,10 @@ prop        | type                         | default value
 `Surface`   | `func`                       |
 `Transform` | `func`                       |
 `value`     | `string`                     |
-`size`      | `number`                     | `128`
-`bgColor`   | `string` (CSS color)         | `"#FFFFFF"`
-`fgColor`   | `string` (CSS color)         | `"#000000"`
-`level`     | `string` (`'L' 'M' 'Q' 'H'`) | `'L'`
+`size`      | `number`                     | 128
+`bgColor`   | `string` (CSS color)         | '#FFFFFF'
+`fgColor`   | `string` (CSS color)         | '#000000'
+`level`     | `string` (`'L' 'M' 'Q' 'H'`) | 'L'
 
 ### Examples
 
