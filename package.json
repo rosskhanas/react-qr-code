@@ -10,7 +10,7 @@
   ],
   "author": {
     "name": "Rostyslav Khanas",
-    "url": "https://github.com/rtkhanas"
+    "email": "rk@try.cards"
   },
   "scripts": {
     "clean": "rimraf lib",
