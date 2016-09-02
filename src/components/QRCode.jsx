@@ -24,7 +24,7 @@ const defaultProps = {
   size: 256,
 };
 
-export class QRCode extends React.Component {
+export default class QRCode extends React.Component {
 
   shouldComponentUpdate(nextProps) {
     return shallowCompare(this, nextProps);
