@@ -7,6 +7,8 @@
 
 A <QRCode /> component for React. This library suppose to work with React and React Native (wasn't tested).
 
+![](https://github.com/opensource-cards/react-qr-code/blob/master/demo.gif)
+
 ### Installation
 
 Using [npm](https://www.npmjs.com/):
@@ -26,18 +28,18 @@ import QRCode from 'react-qr-code';
 
 // create a HOC for web
 const getQRCodeHOC = (QRCodeComponent) ⇒ ((props) => (
-    <QRCodeComponent
-        Rectangle={Rectangle}
-        Surface={ReactART.Surface}
-        Transform={ReactART.Transform}
-        {...props}
-    />
+  <QRCodeComponent
+    Rectangle={Rectangle}
+    Surface={ReactART.Surface}
+    Transform={ReactART.Transform}
+    {...props}
+  />
 ));
 const QRCodeHOC = getQRCodeHOC(QRCode);
 
 ReactDOM.render(
-	<QRCodeHOC value="hey" />,
-	document.getElementById('Container')
+  <QRCodeHOC value="hey" />,
+  document.getElementById('Container')
 );
 ```
 
