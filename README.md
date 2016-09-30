@@ -7,8 +7,6 @@
 
 A <QRCode /> component for React. This library suppose to work with React and React Native (wasn't tested).
 
-![](https://github.com/opensource-cards/react-qr-code/blob/master/demo.gif)
-
 ### Installation
 
 Using [npm](https://www.npmjs.com/):
