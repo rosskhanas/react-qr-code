@@ -1,8 +1,0 @@
-{
-  "name": "react-qr-code-web",
-  "version": "0.0.0",
-  "dependencies": {
-    "react-art": "^0.15.1",
-    "react-dom": "^15.1.0"
-  }
-}

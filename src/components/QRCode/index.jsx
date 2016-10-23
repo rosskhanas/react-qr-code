@@ -4,12 +4,11 @@ import shallowCompare from 'react-addons-shallow-compare';
 // thus the deep require.
 import QRCodeImpl from 'qr.js/lib/QRCode';
 import ErrorCorrectLevel from 'qr.js/lib/ErrorCorrectLevel';
-import * as LEVELS from '../constants/levels';
+import QRCodeSurface from '../QRCodeSurface';
+import QRCodeSurfaceCell from '../QRCodeSurfaceCell';
+import * as LEVELS from '../../constants/levels';
 
 const propTypes = {
-  Rectangle: React.PropTypes.func.isRequired,
-  Surface: React.PropTypes.func.isRequired,
-  Transform: React.PropTypes.func.isRequired,
   bgColor: React.PropTypes.string,
   fgColor: React.PropTypes.string,
   level: React.PropTypes.oneOf([LEVELS.L, LEVELS.M, LEVELS.Q, LEVELS.H]),
@@ -31,7 +30,7 @@ export default class QRCode extends React.Component {
   }
 
   renderQRCode() {
-    const { Rectangle, Transform, bgColor, fgColor, level, size, value } = this.props;
+    const { bgColor, fgColor, level, size, value } = this.props;
     // We'll use type === -1 to force QRCode to automatically pick the best type
     const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
     qrcode.addData(value);
@@ -43,37 +42,34 @@ export default class QRCode extends React.Component {
       const fill = cell ? fgColor : bgColor;
       const qrItemWidth = (Math.ceil((cellIndex + 1) * tileW) - Math.floor(cellIndex * tileW));
       const qrItemHeight = (Math.ceil((rowIndex + 1) * tileH) - Math.floor(rowIndex * tileH));
+      const d = `M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} -${qrItemHeight} L 0 -${qrItemHeight} Z`;
       const transformX = Math.round(cellIndex * tileW);
       const transformY = Math.round(rowIndex * tileH);
-      const transform = new Transform().translate(transformX, transformY);
       return (
-        <Rectangle
+        <QRCodeSurfaceCell
           key={`rectangle-${rowIndex}-${cellIndex}`}
-          width={qrItemWidth}
-          height={qrItemHeight}
+          d={d}
           fill={fill}
-          transform={transform}
+          transformX={transformX}
+          transformY={transformY}
         />
       );
     })));
   }
 
   render() {
+    const { size } = this.props;
     const canvasStyle = {
-      height: this.props.size,
-      width: this.props.size,
+      height: size,
+      width: size,
     };
-    const { Surface } = this.props;
     return (
-      <div>
-        <Surface
-          height={this.props.size}
-          width={this.props.size}
-          style={canvasStyle}
-        >
-          {this.renderQRCode()}
-        </Surface>
-      </div>
+      <QRCodeSurface
+        size={size}
+        style={canvasStyle}
+      >
+        {this.renderQRCode()}
+      </QRCodeSurface>
     );
   }
 }
