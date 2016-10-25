@@ -40,7 +40,7 @@ prop        | type                         | default value
 
 ### Examples
 
-* Main ([source](https://github.com/opensource-cards/react-qr-code/tree/master/stories))
+* Storybook ([source](https://github.com/opensource-cards/react-qr-code/tree/master/stories))
 
 ### License
 
