@@ -7,7 +7,6 @@
 [![peerDependency Status](https://david-dm.org/opensource-cards/react-qr-code/peer-status.svg)](https://david-dm.org/opensource-cards/react-qr-code#info=peerDependencies)
 
 A <QRCode /> component for React. This library works with React and React Native (uses ART module).
-https://opensource-cards.github.io/react-qr-code/
 
 ### Installation
 
