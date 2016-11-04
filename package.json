@@ -19,8 +19,8 @@
     "clean": "rimraf lib",
     "lint": "eslint src",
     "build": "npm run lint && npm run clean && babel src --out-dir lib",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs"
+    "build-storybook": "build-storybook -o docs",
+    "storybook": "start-storybook -p 6006"
   },
   "license": "MIT",
   "repository": {
