@@ -20,7 +20,7 @@
     "lint": "eslint src",
     "build": "npm run lint && npm run clean && babel src --out-dir lib",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs"
   },
   "license": "MIT",
   "repository": {
