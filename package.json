@@ -1,6 +1,6 @@
 {
   "name": "react-qr-code",
-  "version": "0.0.1-rc.7",
+  "version": "0.1.0",
   "description": "A <QRCode /> component for React.",
   "keywords": [
     "react",

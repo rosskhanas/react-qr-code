@@ -36,15 +36,14 @@ export default class QRCode extends React.Component {
     qrcode.addData(value);
     qrcode.make();
     const cells = qrcode.modules;
-    const tileW = size / cells.length;
-    const tileH = size / cells.length;
+    const tileSize = size / cells.length;
     return cells.map((row, rowIndex) => (row.map((cell, cellIndex) => {
       const fill = cell ? fgColor : bgColor;
-      const qrItemWidth = (Math.ceil((cellIndex + 1) * tileW) - Math.floor(cellIndex * tileW));
-      const qrItemHeight = (Math.ceil((rowIndex + 1) * tileH) - Math.floor(rowIndex * tileH));
-      const d = `M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} -${qrItemHeight} L 0 -${qrItemHeight} Z`;
-      const transformX = Math.round(cellIndex * tileW);
-      const transformY = Math.round(rowIndex * tileH);
+      const qrItemWidth = Math.ceil((cellIndex + 1) * tileSize) - Math.floor(cellIndex * tileSize);
+      const qrItemHeight = Math.ceil((rowIndex + 1) * tileSize) - Math.floor(rowIndex * tileSize);
+      const d = `M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} ${qrItemHeight} L 0 ${qrItemHeight} Z`;
+      const transformX = Math.round(cellIndex * tileSize);
+      const transformY = Math.round(rowIndex * tileSize);
       return (
         <QRCodeSurfaceCell
           key={`rectangle-${rowIndex}-${cellIndex}`}
