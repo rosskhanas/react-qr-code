@@ -1,0 +1,13 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o ../../docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@kadira/storybook": "^2.21.0"
+  }
+}

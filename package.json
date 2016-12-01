@@ -1,6 +1,6 @@
 {
   "name": "react-qr-code",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A <QRCode /> component for React.",
   "keywords": [
     "react",
@@ -13,14 +13,14 @@
     "email": "rk@try.cards"
   },
   "scripts": {
-    "rn-watch": "babel ./src --out-dir=./example_rn/lib --watch",
-    "rn-storybook": "cd example_rn && npm run storybook",
-    "rn-run-ios": "cd example_rn && react-native run-ios",
+    "storybook-web-build": "cd ./storybooks/web && npm run build-storybook",
+    "storybook-web": "cd ./storybooks/web && npm run storybook",
+    "storybook-native-watch": "babel ./src --out-dir=./storybooks/native/lib --watch",
+    "storybook-native": "cd ./storybooks/native && npm run storybook",
+    "storybook-ios": "cd ./storybooks/native && react-native run-ios",
     "clean": "rimraf lib",
     "lint": "eslint src",
-    "build": "npm run lint && npm run clean && babel src --out-dir lib",
-    "build-storybook": "build-storybook -o docs",
-    "storybook": "start-storybook -p 6006"
+    "build": "npm run lint && npm run clean && babel src --out-dir lib"
   },
   "license": "MIT",
   "repository": {
@@ -33,15 +33,15 @@
   "main": "lib/index.js",
   "dependencies": {
     "qr.js": "0.0.0",
-    "react": "^15.0.0",
-    "react-addons-shallow-compare": "^15.2.1",
-    "react-dom": "^15.0.0"
+    "react-addons-shallow-compare": "^15.2.1"
   },
   "peerDependencies": {
-    "react-art": "^0.15.1"
+    "react": "~15.3.2",
+    "react-art": "^0.15.1",
+    "react-dom": "~15.3.2",
+    "react-native": "^0.38.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
     "babel": "^6.3.26",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.16.0",
@@ -56,8 +56,10 @@
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "rimraf": "^2.5.4",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.1"
+    "react": "~15.3.2",
+    "react-art": "^0.15.1",
+    "react-dom": "~15.3.2",
+    "react-native": "^0.38.0",
+    "rimraf": "^2.5.4"
   }
 }

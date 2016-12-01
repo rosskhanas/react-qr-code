@@ -1,0 +1,26 @@
+{
+  "name": "native",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "storybook": "storybook start -p 7007"
+  },
+  "dependencies": {
+    "qr.js": "0.0.0",
+    "react": "15.4.1",
+    "react-addons-shallow-compare": "^15.2.1",
+    "react-native": "0.38.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "devDependencies": {
+    "babel-jest": "17.0.2",
+    "babel-preset-react-native": "1.9.0",
+    "jest": "17.0.3",
+    "react-test-renderer": "15.4.1",
+    "@kadira/react-native-storybook": "^2.0.0"
+  }
+}
