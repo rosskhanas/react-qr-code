@@ -3,6 +3,8 @@ node_js:
   - "6.0"
 script:
   - npm run build
+notifications:
+  slack: cards-inc:NJt6wNBjKHUWl15RMjvGRbcA
 branches:
   only:
     - master
