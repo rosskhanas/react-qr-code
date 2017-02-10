@@ -41,7 +41,7 @@ prop        | type                         | default value
 
 ### Examples
 
-* Storybook ([source](https://github.com/opensource-cards/react-qr-code/tree/master/stories))
+* Storybook ([source](https://github.com/rtkhanas/react-qr-code/tree/master/stories))
 
 ### License
 
