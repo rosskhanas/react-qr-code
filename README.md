@@ -39,10 +39,6 @@ prop        | type                         | default value
 `fgColor`   | `string` (CSS color)         | '#000000'
 `level`     | `string` (`'L' 'M' 'Q' 'H'`) | 'L'
 
-### Examples
-
-* Storybook ([source](https://github.com/rtkhanas/react-qr-code/tree/master/stories))
-
 ### License
 
 MIT
