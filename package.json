@@ -22,7 +22,7 @@
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "build": "npm run lint && && npm test npm run clean && babel src --out-dir lib",
+    "build": "npm run lint && npm test && npm run clean && babel src --out-dir lib",
     "release": "npm run build && npm run storybook-web-build"
   },
   "license": "MIT",
