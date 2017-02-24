@@ -13,7 +13,9 @@
     "email": "rtkhanas@gmail.com"
   },
   "scripts": {
-    "storybook-web-build": "cd ./storybooks/web && npm run build-storybook",
+    "demo": "cd demo && yarn start",
+    "demo:build": "cd demo && yarn run build",
+    "demo:deploy": "gh-pages -d demo/build",
     "storybook-web": "cd ./storybooks/web && npm run storybook",
     "storybook-native-watch": "babel ./src --out-dir=./storybooks/native/lib --watch",
     "storybook-native": "cd ./storybooks/native && npm run storybook",
@@ -22,8 +24,7 @@
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "build": "npm run lint && npm test && npm run clean && babel src --out-dir lib",
-    "release": "npm run build && npm run storybook-web-build"
+    "build": "npm run lint && npm test && npm run clean && babel src --out-dir lib"
   },
   "license": "MIT",
   "repository": {
@@ -59,6 +60,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
+    "gh-pages": "^0.12.0",
     "jsdom": "^9.11.0",
     "jsdom-global": "^2.1.0",
     "mocha": "^3.1.0",
