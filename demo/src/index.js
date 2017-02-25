@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { injectGlobalStyles } from 'ross-ui';
 import App from './components/App';
-import './utils/styles-global';
+
+injectGlobalStyles();
 
 ReactDOM.render(
   <App />,

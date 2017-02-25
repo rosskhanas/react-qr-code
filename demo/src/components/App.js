@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
-import AppContainer from '../components-styled/AppContainer';
-import Content from '../components-styled/Content';
-import Footer from '../components-styled/Footer';
+import SyntaxHighlighter, {
+  registerLanguage,
+} from 'react-syntax-highlighter/dist/light';
+import js from 'highlight.js/lib/languages/javascript';
+import syntaxTheme from 'react-syntax-highlighter/dist/styles/vs';
+import {
+  AppContainer,
+  Content,
+  Footer,
+  Header,
+  Link,
+  Paragraph,
+  SubTitle,
+  Title,
+} from 'ross-ui';
+import ContentCenter from '../components-styled/ContentCenter';
 import GitHubImage from '../components-styled/GitHubImage';
-import Header from '../components-styled/Header';
 import Input from '../components-styled/Input';
 import InputContainer from '../components-styled/InputContainer';
-import Link from '../components-styled/Link';
-import Paragraph from '../components-styled/Paragraph';
-import Title from '../components-styled/Title';
 import QRCode from '../../../lib';
+
+registerLanguage('javascript', js);
 
 export default class App extends Component {
 
@@ -25,6 +36,16 @@ export default class App extends Component {
 
   render() {
     const repositoryLink = 'https://github.com/rtkhanas/react-qr-code';
+    const codeString = `
+import React from 'react';
+import ReactDOM from 'react-dom';
+import QRCode from 'react-qr-code';
+
+ReactDOM.render(
+  <QRCode value="${this.state.value}" />,
+  document.getElementById('root')
+);
+`;
     return (
       <AppContainer>
         <Link href={repositoryLink} >
@@ -40,14 +61,21 @@ export default class App extends Component {
             Simple QR Code for React and React Native.
           </Paragraph>
           <Paragraph>
-            A project by <Link href="https://github.com/rtkhanas">Ross Khanas</Link>.
+            A project by <Link href="https://rtkhanas.github.io/">Ross Khanas</Link>.
           </Paragraph>
         </Header>
         <Content>
-          <QRCode value={this.state.value} />
-          <InputContainer>
-            <Input type="text" value={this.state.value} onChange={this.onValueChange} />
-          </InputContainer>
+          <SubTitle>Demo</SubTitle>
+          <ContentCenter>
+            <QRCode value={this.state.value} />
+            <InputContainer>
+              <Input type="text" value={this.state.value} onChange={this.onValueChange} />
+            </InputContainer>
+          </ContentCenter>
+          <SubTitle>Code</SubTitle>
+          <SyntaxHighlighter language="js" style={syntaxTheme}>
+            {codeString}
+          </SyntaxHighlighter>
         </Content>
         <Footer>
           Released under the <Link href={`${repositoryLink}/blob/master/LICENSE`}>MIT license</Link>. <Link href={repositoryLink} >View source</Link>.
