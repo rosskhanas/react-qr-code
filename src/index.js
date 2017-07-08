@@ -1,3 +1,1 @@
-import QRCode from './components/QRCode';
-
-export default QRCode;
+export { default } from './components/QRCode';

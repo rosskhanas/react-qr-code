@@ -1,5 +1,4 @@
 import React from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 // qr.js doesn't handle error level of zero (M) so we need to do it right,
 // thus the deep require.
 import QRCodeImpl from 'qr.js/lib/QRCode';
@@ -23,12 +22,7 @@ const defaultProps = {
   size: 256,
 };
 
-export default class QRCode extends React.Component {
-
-  shouldComponentUpdate(nextProps) {
-    return shallowCompare(this, nextProps);
-  }
-
+export default class QRCode extends React.PureComponent {
   renderQRCode() {
     const { bgColor, fgColor, level, size, value } = this.props;
     // We'll use type === -1 to force QRCode to automatically pick the best type

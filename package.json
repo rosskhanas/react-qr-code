@@ -36,8 +36,7 @@
   ],
   "main": "lib/index.js",
   "dependencies": {
-    "qr.js": "0.0.0",
-    "react-addons-shallow-compare": "^15.2.1"
+    "qr.js": "0.0.0"
   },
   "peerDependencies": {
     "react": "^15.4.2",

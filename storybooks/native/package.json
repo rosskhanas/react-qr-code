@@ -10,7 +10,6 @@
   "dependencies": {
     "qr.js": "0.0.0",
     "react": "15.4.1",
-    "react-addons-shallow-compare": "^15.2.1",
     "react-native": "0.38.0"
   },
   "jest": {
