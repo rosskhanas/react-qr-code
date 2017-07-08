@@ -10,10 +10,8 @@ A <QRCode /> component for React. This library works with React and React Native
 
 ### Installation
 
-Using [npm](https://www.npmjs.com/):
-
 ```
-npm install --save react-qr-code
+yarn add react-qr-code
 ```
 
 ### The Gist
