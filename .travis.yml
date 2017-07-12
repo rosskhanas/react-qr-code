@@ -6,3 +6,4 @@ script:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
