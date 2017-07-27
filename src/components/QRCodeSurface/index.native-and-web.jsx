@@ -1,13 +1,16 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default (Surface) => {
   const propTypes = {
-    children: React.PropTypes.array.isRequired,
-    size: React.PropTypes.number.isRequired,
-    style: React.PropTypes.object,
+    children: PropTypes.array.isRequired,
+    size: PropTypes.number.isRequired,
+    style: PropTypes.object,
   };
 
-  const defaultProps = {};
+  const defaultProps = {
+    style: undefined,
+  };
 
   const QRCodeSurface = ({ children, size, style }) => (
     <Surface height={size} style={style} width={size} >

@@ -1,18 +1,18 @@
-import React from 'react';
-// qr.js doesn't handle error level of zero (M) so we need to do it right,
-// thus the deep require.
+// qr.js doesn't handle error level of zero (M) so we need to do it right, thus the deep require.
 import QRCodeImpl from 'qr.js/lib/QRCode';
 import ErrorCorrectLevel from 'qr.js/lib/ErrorCorrectLevel';
+import PropTypes from 'prop-types';
+import React from 'react';
 import QRCodeSurface from '../QRCodeSurface';
 import QRCodeSurfaceCell from '../QRCodeSurfaceCell';
 import * as LEVELS from '../../constants/levels';
 
 const propTypes = {
-  bgColor: React.PropTypes.string,
-  fgColor: React.PropTypes.string,
-  level: React.PropTypes.oneOf([LEVELS.L, LEVELS.M, LEVELS.Q, LEVELS.H]),
-  size: React.PropTypes.number,
-  value: React.PropTypes.string.isRequired,
+  bgColor: PropTypes.string,
+  fgColor: PropTypes.string,
+  level: PropTypes.oneOf([LEVELS.L, LEVELS.M, LEVELS.Q, LEVELS.H]),
+  size: PropTypes.number,
+  value: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
@@ -52,15 +52,8 @@ export default class QRCode extends React.PureComponent {
 
   render() {
     const { size } = this.props;
-    const canvasStyle = {
-      height: size,
-      width: size,
-    };
     return (
-      <QRCodeSurface
-        size={size}
-        style={canvasStyle}
-      >
+      <QRCodeSurface size={size} style={{ height: size, width: size }} >
         {this.renderQRCode()}
       </QRCodeSurface>
     );

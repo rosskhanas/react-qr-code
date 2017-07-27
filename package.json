@@ -36,6 +36,7 @@
   ],
   "main": "lib/index.js",
   "dependencies": {
+    "prop-types": "^15.5.10",
     "qr.js": "0.0.0"
   },
   "peerDependencies": {

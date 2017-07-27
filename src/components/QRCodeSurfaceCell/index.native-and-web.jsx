@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default (Shape, Transform) => {
   const propTypes = {
-    d: React.PropTypes.string.isRequired,
-    fill: React.PropTypes.string.isRequired,
-    transformX: React.PropTypes.number.isRequired,
-    transformY: React.PropTypes.number.isRequired,
+    d: PropTypes.string.isRequired,
+    fill: PropTypes.string.isRequired,
+    transformX: PropTypes.number.isRequired,
+    transformY: PropTypes.number.isRequired,
   };
 
   const defaultProps = {};
@@ -18,11 +19,7 @@ export default (Shape, Transform) => {
   }) => {
     const transform = new Transform().translate(transformX, transformY);
     return (
-      <Shape
-        fill={fill}
-        transform={transform}
-        d={d}
-      />
+      <Shape d={d} fill={fill} transform={transform} />
     );
   };
 
