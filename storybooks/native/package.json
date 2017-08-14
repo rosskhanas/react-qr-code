@@ -1,25 +1,27 @@
 {
   "name": "native",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "storybook": "storybook start -p 7007"
+  "devDependencies": {
+    "jest-expo": "~19.0.0",
+    "react-native-scripts": "1.1.0",
+    "react-test-renderer": "16.0.0-alpha.12"
   },
-  "dependencies": {
-    "qr.js": "0.0.0",
-    "react": "15.4.1",
-    "react-native": "0.38.0"
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "jest-expo"
   },
-  "devDependencies": {
-    "babel-jest": "17.0.2",
-    "babel-preset-react-native": "1.9.0",
-    "jest": "17.0.3",
-    "react-test-renderer": "15.4.1",
-    "@kadira/react-native-storybook": "^2.0.0"
+  "dependencies": {
+    "expo": "^19.0.0",
+    "qr.js": "^0.0.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.46.1"
   }
 }

@@ -18,9 +18,8 @@
     "demo:deploy": "gh-pages -d demo/build",
     "storybook-web": "cd ./storybooks/web && npm run storybook",
     "storybook-native-watch": "babel ./src --out-dir=./storybooks/native/lib --watch",
-    "storybook-native": "cd ./storybooks/native && npm run storybook",
-    "storybook-emulator-ios": "cd ./storybooks/native && react-native run-ios",
-    "storybook-ios": "npm run storybook-native-watch & npm run storybook-native & npm run storybook-emulator-ios",
+    "storybook-ios": "cd ./storybooks/native && npm run ios",
+    "storybook-android": "cd ./storybooks/native && npm run android",
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --compilers js:babel-core/register",
@@ -41,8 +40,8 @@
   },
   "peerDependencies": {
     "react": "^15.0.0",
-    "react-art": "^0.15.1",
-    "react-native": "^0.41.2"
+    "react-art": "^0.15.0",
+    "react-native": "^0.47.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -68,7 +67,7 @@
     "react-addons-test-utils": "~15.3.2",
     "react-art": "^0.15.1",
     "react-dom": "~15.3.2",
-    "react-native": "^0.41.2",
+    "react-native": "^0.47.0",
     "rimraf": "^2.5.3"
   }
 }
