@@ -1,4 +1,4 @@
-import { Shape, Transform } from 'react-art';
+import ART from 'react-art-svg-renderer';
 import createQRCodeSurfaceCell from './index.native-and-web';
 
-export default createQRCodeSurfaceCell(Shape, Transform);
+export default createQRCodeSurfaceCell(ART.Shape, ART.Transform);

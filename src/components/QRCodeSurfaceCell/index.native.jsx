@@ -1,4 +1,4 @@
-import { Shape, Transform } from 'react-native/Libraries/ART/ReactNativeART';
+import { ART } from 'react-native';
 import createQRCodeSurfaceCell from './index.native-and-web';
 
-export default createQRCodeSurfaceCell(Shape, Transform);
+export default createQRCodeSurfaceCell(ART.Shape, ART.Transform);

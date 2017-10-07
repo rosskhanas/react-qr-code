@@ -1,4 +1,4 @@
-import { Surface } from 'react-native/Libraries/ART/ReactNativeART';
+import { ART } from 'react-native';
 import createQRCodeSurfaceCell from './index.native-and-web';
 
-export default createQRCodeSurfaceCell(Surface);
+export default createQRCodeSurfaceCell(ART.Surface);
