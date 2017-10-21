@@ -39,9 +39,9 @@
     "qr.js": "0.0.0"
   },
   "peerDependencies": {
-    "react": "^15.0.0",
+    "react": "^16.0.0",
     "react-art-svg-renderer": "^0.0.1-rc.8",
-    "react-native": "^0.47.0"
+    "react-native": "^0.49.3"
   },
   "devDependencies": {
     "babel": "^6.23.0",
