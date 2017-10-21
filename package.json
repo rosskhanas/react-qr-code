@@ -22,7 +22,7 @@
     "storybook-android": "cd ./storybooks/native && npm run android",
     "clean": "rimraf lib",
     "lint": "eslint src",
-    "test": "mocha --recursive --compilers js:babel-core/register",
+    "test": "mocha --recursive --compilers js:babel-core/register,jsx:babel-core/register",
     "build": "npm run lint && npm test && npm run clean && babel src --out-dir lib"
   },
   "license": "MIT",
