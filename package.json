@@ -1,12 +1,13 @@
 {
   "name": "react-qr-code",
   "version": "0.1.2",
-  "description": "A <QRCode /> component for React.",
+  "description": "A QR code generator for React and React Native.",
   "keywords": [
     "react",
+    "react-native",
     "qr",
     "code",
-    "QRCode"
+    "generator"
   ],
   "author": {
     "name": "Ross Khanas",
