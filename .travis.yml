@@ -8,6 +8,6 @@ branches:
 cache: yarn
 language: node_js
 node_js:
-  - "6.0"
+  - "10.0"
 script:
   - npm run build
