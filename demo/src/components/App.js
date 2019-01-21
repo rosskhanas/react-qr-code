@@ -61,7 +61,7 @@ ReactDOM.render(
             Simple QR Code for React and React Native.
           </Paragraph>
           <Paragraph>
-            A project by <Link href="https://rtkhanas.github.io/">Ross Khanas</Link>.
+            A project by <Link href="https://twitter.com/rtkhanas">Ross Khanas</Link>.
           </Paragraph>
         </Header>
         <Content>
