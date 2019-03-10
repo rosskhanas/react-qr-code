@@ -61,7 +61,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.4",
     "gh-pages": "^2.0.1",
-    "jsdom": "^13.1.0",
+    "jsdom": "^14.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^6.0.0",
     "react": "^16.7.0",
