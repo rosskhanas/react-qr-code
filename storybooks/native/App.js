@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, StatusBar, TextInput, View } from 'react-native';
-
+ 
 import QRCode from './lib';
 
 const { height, width } = Dimensions.get('window');
