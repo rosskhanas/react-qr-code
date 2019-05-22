@@ -1,5 +1,10 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
-  "rules": {}
+  "rules": {
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".jsx"] }
+    ]
+  }
 }
