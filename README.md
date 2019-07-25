@@ -48,8 +48,8 @@ prop        | type                         | default value
 ------------|------------------------------|--------------
 `value`     | `string`                     |
 `size`      | `number`                     | 128
-`bgColor`   | `string` .                   | '#FFFFFF'
-`fgColor`   | `string` .                   | '#000000'
+`bgColor`   | `string`                     | '#FFFFFF'
+`fgColor`   | `string`                     | '#000000'
 `level`     | `string` (`'L' 'M' 'Q' 'H'`) | 'L'
 
 ### License
