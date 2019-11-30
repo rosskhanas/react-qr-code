@@ -13,7 +13,7 @@ export default (Surface) => {
   };
 
   const QRCodeSurface = ({ children, size, style }) => (
-    <Surface height={size} style={style} width={size} >
+    <Surface height={size} style={style} width={size}>
       {children}
     </Surface>
   );
