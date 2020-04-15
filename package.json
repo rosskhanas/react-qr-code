@@ -36,6 +36,7 @@
   ],
   "main": "lib/index.js",
   "dependencies": {
+    "@react-native-community/art": "^1.2.0",
     "prop-types": "^15.6.2",
     "qr.js": "0.0.0",
     "react-art-svg-renderer": "^0.0.1-rc.8"
