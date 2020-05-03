@@ -1,16 +1,15 @@
-// qr.js doesn't handle error level of zero (M) so we need to do it right, thus the deep require.
+// A `qr.js` doesn't handle error level of zero (M) so we need to do it right, thus the deep require.
 import QRCodeImpl from "qr.js/lib/QRCode";
 import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 import PropTypes from "prop-types";
 import React from "react";
 import QRCodeSurface from "../QRCodeSurface";
 import QRCodeSurfaceCell from "../QRCodeSurfaceCell";
-import * as LEVELS from "../../constants/levels";
 
 const propTypes = {
   bgColor: PropTypes.string,
   fgColor: PropTypes.string,
-  level: PropTypes.oneOf([LEVELS.L, LEVELS.M, LEVELS.Q, LEVELS.H]),
+  level: PropTypes.oneOf(["L", "M", "Q", "H"]),
   size: PropTypes.number,
   value: PropTypes.string.isRequired,
 };
@@ -18,11 +17,11 @@ const propTypes = {
 const defaultProps = {
   bgColor: "#FFFFFF",
   fgColor: "#000000",
-  level: LEVELS.L,
+  level: "L",
   size: 256,
 };
 
-export default class QRCode extends React.PureComponent {
+class QRCode extends React.PureComponent {
   renderQRCode() {
     const { bgColor, fgColor, level, size, value } = this.props;
     // We'll use type === -1 to force QRCode to automatically pick the best type
@@ -70,3 +69,5 @@ export default class QRCode extends React.PureComponent {
 
 QRCode.propTypes = propTypes;
 QRCode.defaultProps = defaultProps;
+
+export default QRCode;

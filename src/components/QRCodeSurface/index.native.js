@@ -1,4 +1,24 @@
 import { Surface } from "@react-native-community/art";
-import createQRCodeSurfaceCell from "./index.native-and-web";
+import PropTypes from "prop-types";
+import React from "react";
 
-export default createQRCodeSurfaceCell(Surface);
+const propTypes = {
+  children: PropTypes.array.isRequired,
+  size: PropTypes.number.isRequired,
+  style: PropTypes.object,
+};
+
+const defaultProps = {
+  style: undefined,
+};
+
+const QRCodeSurface = ({ children, size, style }) => (
+  <Surface height={size} style={style} width={size}>
+    {children}
+  </Surface>
+);
+
+QRCodeSurface.propTypes = propTypes;
+QRCodeSurface.defaultProps = defaultProps;
+
+export default QRCodeSurface;
