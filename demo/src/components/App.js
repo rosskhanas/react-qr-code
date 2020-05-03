@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import SyntaxHighlighter, {
-  registerLanguage,
-} from "react-syntax-highlighter/dist/light";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import js from "highlight.js/lib/languages/javascript";
-import syntaxTheme from "react-syntax-highlighter/dist/styles/vs";
+import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
 import {
   AppContainer,
   Content,
@@ -18,9 +16,9 @@ import ContentCenter from "../components-styled/ContentCenter";
 import GitHubImage from "../components-styled/GitHubImage";
 import Input from "../components-styled/Input";
 import InputContainer from "../components-styled/InputContainer";
-import QRCode from "../../../lib";
+import QRCode from "../lib";
 
-registerLanguage("javascript", js);
+SyntaxHighlighter.registerLanguage("javascript", js);
 
 export default class App extends Component {
   state = {
@@ -34,7 +32,7 @@ export default class App extends Component {
   };
 
   render() {
-    const repositoryLink = "https://github.com/rtkhanas/react-qr-code";
+    const repositoryLink = "https://github.com/rosskhanas/react-qr-code";
     const codeString = `
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -59,7 +57,7 @@ ReactDOM.render(
           <Paragraph>Simple QR Code for React and React Native.</Paragraph>
           <Paragraph>
             A project by{" "}
-            <Link href="https://twitter.com/rtkhanas">Ross Khanas</Link>.
+            <Link href="https://twitter.com/rosskhanas">Ross Khanas</Link>.
           </Paragraph>
         </Header>
         <Content>
