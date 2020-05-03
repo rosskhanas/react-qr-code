@@ -14,11 +14,10 @@
     "email": "rtkhanas@gmail.com"
   },
   "scripts": {
+    "demo-web-watch": "babel ./src --out-dir=./demo/src/lib --watch",
     "demo": "cd demo && yarn start",
     "demo:build": "cd demo && yarn run build",
     "demo:deploy": "gh-pages -d demo/build",
-    "storybook-web-watch": "babel ./src --out-dir=./demo/src/lib --watch",
-    "storybook-web": "cd ./storybooks/web && npm run storybook",
     "storybook-native-watch": "babel ./src --out-dir=./storybooks/native/lib --watch",
     "storybook-mobile-start": "cd ./storybooks/native && npm run start",
     "storybook-ios": "cd ./storybooks/native && npm run ios",
