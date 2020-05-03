@@ -16,16 +16,16 @@
   "scripts": {
     "demo-web-watch": "babel ./src --out-dir=./demo/src/lib --watch",
     "demo": "cd demo && yarn start",
-    "demo:build": "cd demo && yarn run build",
+    "demo:build": "cd demo && yarn build",
     "demo:deploy": "gh-pages -d demo/build",
     "storybook-native-watch": "babel ./src --out-dir=./storybooks/native/lib --watch",
-    "storybook-mobile-start": "cd ./storybooks/native && npm run start",
-    "storybook-ios": "cd ./storybooks/native && npm run ios",
-    "storybook-android": "cd ./storybooks/native && npm run android",
+    "storybook-mobile-start": "cd ./storybooks/native && yarn start",
+    "storybook-ios": "cd ./storybooks/native && yarn ios",
+    "storybook-android": "cd ./storybooks/native && yarn android",
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --require babel-core/register",
-    "build": "npm run lint && npm test && npm run clean && babel src --out-dir lib"
+    "build": "yarn lint && yarn test && yarn clean && babel src --out-dir lib"
   },
   "license": "MIT",
   "repository": {

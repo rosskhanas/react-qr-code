@@ -10,4 +10,4 @@ language: node_js
 node_js:
   - "10.0"
 script:
-  - npm run build
+  - yarn build
