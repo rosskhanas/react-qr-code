@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import SyntaxHighlighter, {
   registerLanguage,
-} from 'react-syntax-highlighter/dist/light';
-import js from 'highlight.js/lib/languages/javascript';
-import syntaxTheme from 'react-syntax-highlighter/dist/styles/vs';
+} from "react-syntax-highlighter/dist/light";
+import js from "highlight.js/lib/languages/javascript";
+import syntaxTheme from "react-syntax-highlighter/dist/styles/vs";
 import {
   AppContainer,
   Content,
@@ -13,29 +13,28 @@ import {
   Paragraph,
   SubTitle,
   Title,
-} from 'ross-ui';
-import ContentCenter from '../components-styled/ContentCenter';
-import GitHubImage from '../components-styled/GitHubImage';
-import Input from '../components-styled/Input';
-import InputContainer from '../components-styled/InputContainer';
-import QRCode from '../../../lib';
+} from "ross-ui";
+import ContentCenter from "../components-styled/ContentCenter";
+import GitHubImage from "../components-styled/GitHubImage";
+import Input from "../components-styled/Input";
+import InputContainer from "../components-styled/InputContainer";
+import QRCode from "../../../lib";
 
-registerLanguage('javascript', js);
+registerLanguage("javascript", js);
 
 export default class App extends Component {
-
   state = {
-    value: 'Hello, World!',
-  }
+    value: "Hello, World!",
+  };
 
   onValueChange = (e) => {
     this.setState({
       value: e.target.value,
     });
-  }
+  };
 
   render() {
-    const repositoryLink = 'https://github.com/rtkhanas/react-qr-code';
+    const repositoryLink = "https://github.com/rtkhanas/react-qr-code";
     const codeString = `
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -48,7 +47,7 @@ ReactDOM.render(
 `;
     return (
       <AppContainer>
-        <Link href={repositoryLink} >
+        <Link href={repositoryLink}>
           <GitHubImage
             alt="Fork me on GitHub"
             data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
@@ -57,11 +56,10 @@ ReactDOM.render(
         </Link>
         <Header>
           <Title>React QR Code</Title>
+          <Paragraph>Simple QR Code for React and React Native.</Paragraph>
           <Paragraph>
-            Simple QR Code for React and React Native.
-          </Paragraph>
-          <Paragraph>
-            A project by <Link href="https://twitter.com/rtkhanas">Ross Khanas</Link>.
+            A project by{" "}
+            <Link href="https://twitter.com/rtkhanas">Ross Khanas</Link>.
           </Paragraph>
         </Header>
         <Content>
@@ -69,7 +67,11 @@ ReactDOM.render(
           <ContentCenter>
             <QRCode value={this.state.value} />
             <InputContainer>
-              <Input type="text" value={this.state.value} onChange={this.onValueChange} />
+              <Input
+                type="text"
+                value={this.state.value}
+                onChange={this.onValueChange}
+              />
             </InputContainer>
           </ContentCenter>
           <SubTitle>Code</SubTitle>
@@ -78,7 +80,11 @@ ReactDOM.render(
           </SyntaxHighlighter>
         </Content>
         <Footer>
-          Released under the <Link href={`${repositoryLink}/blob/master/LICENSE`}>MIT license</Link>. <Link href={repositoryLink} >View source</Link>.
+          Released under the{" "}
+          <Link href={`${repositoryLink}/blob/master/LICENSE`}>
+            MIT license
+          </Link>
+          . <Link href={repositoryLink}>View source</Link>.
         </Footer>
       </AppContainer>
     );
