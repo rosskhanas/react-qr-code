@@ -7,7 +7,8 @@
 [![devDependency Status](https://david-dm.org/rtkhanas/react-qr-code/dev-status.svg)](https://david-dm.org/rtkhanas/react-qr-code#info=devDependencies)
 [![peerDependency Status](https://david-dm.org/rtkhanas/react-qr-code/peer-status.svg)](https://david-dm.org/rtkhanas/react-qr-code#info=peerDependencies)
 
-A <QRCode /> component for React. This library works with React and React Native (uses ART module).
+A <QRCode /> component for React. This library works with React and React Native
+(uses ART module).
 
 ### Screenshots
 
@@ -32,25 +33,22 @@ yarn add react-qr-code
 ### The Gist
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import QRCode from 'react-qr-code';
+import React from "react";
+import ReactDOM from "react-dom";
+import QRCode from "react-qr-code";
 
-ReactDOM.render(
-  <QRCode value="hey" />,
-  document.getElementById('Container')
-);
+ReactDOM.render(<QRCode value="hey" />, document.getElementById("Container"));
 ```
 
 ### API
 
-prop        | type                         | default value
-------------|------------------------------|--------------
-`value`     | `string`                     |
-`size`      | `number`                     | 128
-`bgColor`   | `string`                     | '#FFFFFF'
-`fgColor`   | `string`                     | '#000000'
-`level`     | `string` (`'L' 'M' 'Q' 'H'`) | 'L'
+| prop      | type                         | default value |
+| --------- | ---------------------------- | ------------- |
+| `value`   | `string`                     |
+| `size`    | `number`                     | 128           |
+| `bgColor` | `string`                     | '#FFFFFF'     |
+| `fgColor` | `string`                     | '#000000'     |
+| `level`   | `string` (`'L' 'M' 'Q' 'H'`) | 'L'           |
 
 ### License
 
