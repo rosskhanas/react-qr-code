@@ -1,10 +1,13 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier"],
   "rules": {
+    "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx"] }
+      {
+        "extensions": [".js"]
+      }
     ]
   }
 }

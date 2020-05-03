@@ -1,15 +1,19 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js"],
     alias: {
-      'react-qr-code': path.join(__dirname, '..', '..', '..', 'src'),
+      "react-qr-code": path.join(__dirname, "..", "..", "..", "src"),
     },
   },
   module: {
     rules: [
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.js?$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
 };

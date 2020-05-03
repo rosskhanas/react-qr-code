@@ -1,14 +1,13 @@
-import React from 'react';
-import {Dimensions, StatusBar, TextInput, View} from 'react-native';
+import React from "react";
+import { Dimensions, StatusBar, TextInput, View } from "react-native";
+import QRCode from "./lib";
 
-import QRCode from './lib';
-
-const {height, width} = Dimensions.get('window');
+const { height, width } = Dimensions.get("window");
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {text: 'Hello, World!'};
+    this.state = { text: "Hello, World!" };
   }
 
   render() {
@@ -19,12 +18,12 @@ export default class App extends React.Component {
         <TextInput
           style={{
             height: 50,
-            borderColor: '#ccc',
+            borderColor: "#ccc",
             borderWidth: 1,
             margin: 10,
             padding: 5,
           }}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => this.setState({ text })}
           value={this.state.text}
         />
       </View>
