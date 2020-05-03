@@ -19,6 +19,7 @@
     "demo:deploy": "gh-pages -d demo/build",
     "storybook-web": "cd ./storybooks/web && npm run storybook",
     "storybook-native-watch": "babel ./src --out-dir=./storybooks/native/lib --watch",
+    "storybook-mobile-start": "cd ./storybooks/native && npm run start",
     "storybook-ios": "cd ./storybooks/native && npm run ios",
     "storybook-android": "cd ./storybooks/native && npm run android",
     "clean": "rimraf lib",
