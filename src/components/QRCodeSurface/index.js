@@ -11,8 +11,8 @@ const defaultProps = {
   style: undefined,
 };
 
-const QRCodeSurface = ({ children, size, style }) => (
-  <svg height={size} style={style} width={size}>
+const QRCodeSurface = ({ children, size, style, xmlns = "http://www.w3.org/2000/svg" }) => {
+  return (<svg height={size} style={style} width={size} xmlns={xmlns} >
     {children}
   </svg>
 );
