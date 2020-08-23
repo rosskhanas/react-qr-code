@@ -10,7 +10,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-const QRCodeSurfaceCell = ({ d, fill, transformX, transformY }) => (
+const QRCodeCell = ({ d, fill, transformX, transformY }) => (
   <path
     d={d}
     fill={fill}
@@ -18,7 +18,7 @@ const QRCodeSurfaceCell = ({ d, fill, transformX, transformY }) => (
   />
 );
 
-QRCodeSurfaceCell.propTypes = propTypes;
-QRCodeSurfaceCell.defaultProps = defaultProps;
+QRCodeCell.propTypes = propTypes;
+QRCodeCell.defaultProps = defaultProps;
 
-export default QRCodeSurfaceCell;
+export default QRCodeCell;
