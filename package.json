@@ -36,6 +36,7 @@
     "lib"
   ],
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "dependencies": {
     "@react-native-community/art": "^1.2.0",
     "prop-types": "^15.7.2",
