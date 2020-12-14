@@ -12,6 +12,7 @@ const propTypes = {
   level: PropTypes.oneOf(["L", "M", "Q", "H"]),
   size: PropTypes.number,
   value: PropTypes.string.isRequired,
+  withDownload: Proptypes.bool
 };
 
 const defaultProps = {
@@ -19,16 +20,41 @@ const defaultProps = {
   fgColor: "#000000",
   level: "L",
   size: 256,
+  withDownload: false
 };
 
-const QRCode = ({ bgColor, fgColor, level, size, value }) => {
+const QRCode = ({ bgColor, fgColor, level, size, value, withDownload }) => {
   // We'll use type === -1 to force QRCode to automatically pick the best type.
   const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   qrcode.addData(value);
   qrcode.make();
   const cells = qrcode.modules;
   const tileSize = size / cells.length;
+  
+  const downloadQR = () => {
+    const svg = document.getElementById("qrcode");
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.onload = function () {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      const pngFile = canvas.toDataURL("image/png");
+
+      const downloadLink = document.createElement("a");
+      downloadLink.download = "qrcode";
+      downloadLink.href = `${pngFile}`;
+      downloadLink.click();
+    };
+
+    img.src = "data:image/svg+xml;base64," + btoa(svgData);
+  };
+  
   return (
+    <>
     <QRCodeSurface size={size} style={{ height: size, width: size }}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
@@ -56,6 +82,12 @@ const QRCode = ({ bgColor, fgColor, level, size, value }) => {
         })
       )}
     </QRCodeSurface>
+    {withDownload && (
+      <button onClick={() => downloadQR()} className="qr-code-download-btn">
+        Download QR
+      </button>
+    )}
+    </>
   );
 };
 
