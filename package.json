@@ -33,7 +33,8 @@
     "url": "git@github.com:rosskhanas/react-qr-code.git"
   },
   "files": [
-    "lib"
+    "lib",
+    "types"
   ],
   "main": "lib/index.js",
   "types": "types/index.d.ts",
