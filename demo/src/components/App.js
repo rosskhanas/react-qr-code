@@ -2,27 +2,48 @@ import React, { Component } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import js from "highlight.js/lib/languages/javascript";
 import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
-import {
-  AppContainer,
-  Content,
-  Footer,
-  Header,
-  Link,
-  Paragraph,
-  SubTitle,
-  Title,
-} from "ross-ui";
+import { createGlobalStyle } from "styled-components";
+import Content from "../components-styled/Content";
 import ContentCenter from "../components-styled/ContentCenter";
+import Footer from "../components-styled/Footer";
 import GitHubImage from "../components-styled/GitHubImage";
+import Header from "../components-styled/Header";
 import Input from "../components-styled/Input";
 import InputContainer from "../components-styled/InputContainer";
+import Link from "../components-styled/Link";
+import Paragraph from "../components-styled/Paragraph";
+import SubTitle from "../components-styled/SubTitle";
+import Title from "../components-styled/Title";
 import QRCode from "../lib";
+
+const GlobalStyle = createGlobalStyle`
+body{margin:0;padding:0;font-family:Fira Sans,Helvetica Neue,Apple SD Gothic Neo,Malgun Gothic,Segoe UI,sans-serif;font-weight:200;}
+`;
 
 SyntaxHighlighter.registerLanguage("javascript", js);
 
-export default class App extends Component {
+class App extends Component {
   state = {
     value: "Hello, World!",
+  };
+
+  onImageCownload = () => {
+    const svg = document.getElementById("QRCode");
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      const pngFile = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.download = "QRCode";
+      downloadLink.href = `${pngFile}`;
+      downloadLink.click();
+    };
+    img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
 
   onValueChange = (e) => {
@@ -32,6 +53,7 @@ export default class App extends Component {
   };
 
   render() {
+    const { value } = this.state;
     const repositoryLink = "https://github.com/rosskhanas/react-qr-code";
     const codeString = `
 import React from 'react';
@@ -39,12 +61,13 @@ import ReactDOM from 'react-dom';
 import QRCode from 'react-qr-code';
 
 ReactDOM.render(
-  <QRCode value="${this.state.value}" />,
+  <QRCode value="${value}" />,
   document.getElementById('root')
 );
 `;
     return (
-      <AppContainer>
+      <div>
+        <GlobalStyle />
         <Link href={repositoryLink}>
           <GitHubImage
             alt="Fork me on GitHub"
@@ -63,13 +86,14 @@ ReactDOM.render(
         <Content>
           <SubTitle>Demo</SubTitle>
           <ContentCenter>
-            <QRCode value={this.state.value} />
+            <QRCode id="QRCode" value={value} />
             <InputContainer>
-              <Input
-                type="text"
-                value={this.state.value}
-                onChange={this.onValueChange}
+              <input
+                type="button"
+                value="Download QR"
+                onClick={this.onImageCownload}
               />
+              <Input type="text" value={value} onChange={this.onValueChange} />
             </InputContainer>
           </ContentCenter>
           <SubTitle>Code</SubTitle>
@@ -84,7 +108,9 @@ ReactDOM.render(
           </Link>
           . <Link href={repositoryLink}>View source</Link>.
         </Footer>
-      </AppContainer>
+      </div>
     );
   }
 }
+
+export default App;

@@ -2,16 +2,6 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "3.4.1"
-  },
-  "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-syntax-highlighter": "^12.2.1",
-    "ross-ui": "^0.0.1-rc.1",
-    "styled-components": "^5.1.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,5 +19,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-syntax-highlighter": "^12.2.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "react-scripts": "3.4.1"
   }
 }
