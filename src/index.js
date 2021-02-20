@@ -21,7 +21,7 @@ const defaultProps = {
   size: 256,
 };
 
-const QRCode = ({ bgColor, fgColor, level, size, value }) => {
+const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
   // We'll use type === -1 to force QRCode to automatically pick the best type.
   const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   qrcode.addData(value);
@@ -29,7 +29,7 @@ const QRCode = ({ bgColor, fgColor, level, size, value }) => {
   const cells = qrcode.modules;
   const tileSize = size / cells.length;
   return (
-    <QRCodeSurface size={size} style={{ height: size, width: size }}>
+    <QRCodeSurface {...props} size={size} style={{ height: size, width: size }}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
           const fill = cell ? fgColor : bgColor;

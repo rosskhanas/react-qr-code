@@ -12,8 +12,8 @@ const defaultProps = {
   style: undefined,
 };
 
-const QRCodeSurface = ({ children, size, style }) => (
-  <Surface height={size} style={style} width={size}>
+const QRCodeSurface = ({ children, size, style, ...props }) => (
+  <Surface {...props} height={size} style={style} width={size}>
     {children}
   </Surface>
 );
