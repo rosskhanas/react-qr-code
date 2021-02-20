@@ -44,7 +44,7 @@
     "qr.js": "0.0.0"
   },
   "peerDependencies": {
-    "react": "^16.x"
+    "react": "^16.x || ^17.x"
   },
   "devDependencies": {
     "babel": "^6.23.0",
