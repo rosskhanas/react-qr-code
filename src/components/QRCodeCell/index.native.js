@@ -1,4 +1,4 @@
-import { Shape, Transform } from "@react-native-community/art";
+import { Path } from "react-native-svg";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -12,11 +12,7 @@ const propTypes = {
 const defaultProps = {};
 
 const QRCodeCell = ({ d, fill, transformX, transformY }) => (
-  <Shape
-    d={d}
-    fill={fill}
-    transform={new Transform().translate(transformX, transformY)}
-  />
+  <Path d={d} fill={fill} x={transformX} y={transformY} />
 );
 
 QRCodeCell.propTypes = propTypes;

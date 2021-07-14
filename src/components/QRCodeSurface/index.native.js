@@ -1,4 +1,4 @@
-import { Surface } from "@react-native-community/art";
+import { Svg } from "react-native-svg";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -13,9 +13,9 @@ const defaultProps = {
 };
 
 const QRCodeSurface = ({ children, size, style, ...props }) => (
-  <Surface {...props} height={size} style={style} width={size}>
+  <Svg {...props} height={size} style={style} width={size}>
     {children}
-  </Surface>
+  </Svg>
 );
 
 QRCodeSurface.propTypes = propTypes;
