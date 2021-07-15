@@ -40,11 +40,11 @@
   "types": "types/index.d.ts",
   "dependencies": {
     "prop-types": "^15.7.2",
-    "qr.js": "0.0.0",
-    "react-native-svg": "^12.1.1"
+    "qr.js": "0.0.0"
   },
   "peerDependencies": {
-    "react": "^16.x || ^17.x"
+    "react": "^16.x || ^17.x",
+    "react-native-svg": "*"
   },
   "devDependencies": {
     "babel": "^6.23.0",
