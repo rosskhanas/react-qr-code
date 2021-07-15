@@ -15,6 +15,7 @@ A <QRCode /> component for React. This library works with React and React Native
 <img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-web.png" width="640" />
 
 #### Android & iOS
+
 <div float="left">
     <img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-android.png" width="320" />
     <img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-ios.png" width="265" />
