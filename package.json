@@ -39,12 +39,12 @@
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "dependencies": {
-    "@react-native-community/art": "^1.2.0",
     "prop-types": "^15.7.2",
     "qr.js": "0.0.0"
   },
   "peerDependencies": {
-    "react": "^16.x || ^17.x"
+    "react": "^16.x || ^17.x",
+    "react-native-svg": "*"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -70,6 +70,7 @@
     "mocha": "^8.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-native-svg": "^12.1.1",
     "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.2"
   }

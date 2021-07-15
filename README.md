@@ -6,7 +6,7 @@
 [![peerDependency Status](https://david-dm.org/rosskhanas/react-qr-code/peer-status.svg)](https://david-dm.org/rosskhanas/react-qr-code#info=peerDependencies)
 
 A <QRCode /> component for React. This library works with React and React Native
-(uses ART module).
+(using [React Native SVG](https://github.com/react-native-svg/react-native-svg)).
 
 ### Screenshots
 
@@ -16,16 +16,22 @@ A <QRCode /> component for React. This library works with React and React Native
 
 #### Android & iOS
 
-<img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-android.png" width="320" />
-
-#### iOS
-
-<img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-ios.png" width="320" />
+<div float="left">
+    <img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-android.png" width="320" />
+    <img src="https://github.com/rosskhanas/react-qr-code/blob/master/demo-ios.png" width="265" />
+</div>
 
 ### Installation
 
 ```
 yarn add react-qr-code
+```
+
+When using this library with React Native, you will also need to [have `react-native-svg` installed](https://github.com/react-native-svg/react-native-svg#installation).
+
+```
+yarn add react-native-svg
+cd ios && pod install
 ```
 
 ### The Gist
