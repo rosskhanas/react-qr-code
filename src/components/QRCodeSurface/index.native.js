@@ -1,6 +1,6 @@
-import { Svg } from "react-native-svg";
 import PropTypes from "prop-types";
 import React from "react";
+import { Svg } from "react-native-svg";
 
 const propTypes = {
   children: PropTypes.array.isRequired,
