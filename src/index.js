@@ -33,15 +33,11 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
           const fill = cell ? fgColor : bgColor;
-          const qrItemWidth =
-            Math.ceil((cellIndex + 1) * tileSize) -
-            Math.floor(cellIndex * tileSize);
-          const qrItemHeight =
-            Math.ceil((rowIndex + 1) * tileSize) -
-            Math.floor(rowIndex * tileSize);
-          const d = `M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} ${qrItemHeight} L 0 ${qrItemHeight} Z`;
           const transformX = Math.round(cellIndex * tileSize);
           const transformY = Math.round(rowIndex * tileSize);
+          const qrItemWidth = Math.round((cellIndex + 1) * tileSize) - transformX;
+          const qrItemHeight = Math.round((rowIndex + 1) * tileSize) - transformY;
+          const d = `M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} ${qrItemHeight} L 0 ${qrItemHeight} Z`;
           return (
             <QRCodeCell
               /* eslint-disable react/no-array-index-key */

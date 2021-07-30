@@ -11,9 +11,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-const QRCodeCell = ({ d, fill, transformX, transformY }) => (
-  <Path d={d} fill={fill} x={transformX} y={transformY} />
-);
+const QRCodeCell = ({ d, fill, transformX, transformY }) => <Path d={d} fill={fill} x={transformX} y={transformY} />;
 
 QRCodeCell.propTypes = propTypes;
 QRCodeCell.defaultProps = defaultProps;

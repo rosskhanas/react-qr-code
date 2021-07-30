@@ -1,6 +1,6 @@
 {
   "name": "react-qr-code",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A QR code generator for React and React Native.",
   "keywords": [
     "react",
@@ -25,7 +25,7 @@
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --require babel-core/register",
-    "build": "yarn lint && yarn test && yarn clean && babel src --out-dir lib"
+    "build": "yarn clean && babel src --out-dir lib"
   },
   "license": "MIT",
   "repository": {

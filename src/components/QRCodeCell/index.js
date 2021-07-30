@@ -11,11 +11,7 @@ const propTypes = {
 const defaultProps = {};
 
 const QRCodeCell = ({ d, fill, transformX, transformY }) => (
-  <path
-    d={d}
-    fill={fill}
-    transform={`matrix(${[1, 0, 0, 1, transformX, transformY]})`}
-  />
+  <path d={d} fill={fill} transform={`matrix(${[1, 0, 0, 1, transformX, transformY]})`} />
 );
 
 QRCodeCell.propTypes = propTypes;
