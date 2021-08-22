@@ -29,7 +29,7 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
   const cells = qrcode.modules;
   const tileSize = size / cells.length;
   return (
-    <QRCodeSurface {...props} size={size} style={{ height: size, width: size }}>
+    <QRCodeSurface {...props} size={size}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
           const fill = cell ? fgColor : bgColor;
