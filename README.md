@@ -48,11 +48,12 @@ ReactDOM.render(<QRCode value="hey" />, document.getElementById("Container"));
 
 | prop      | type                         | default value |
 | --------- | ---------------------------- | ------------- |
-| `value`   | `string`                     |
-| `size`    | `number`                     | 256           |
 | `bgColor` | `string`                     | '#FFFFFF'     |
 | `fgColor` | `string`                     | '#000000'     |
 | `level`   | `string` (`'L' 'M' 'Q' 'H'`) | 'L'           |
+| `size`    | `number`                     | 256           |
+| `title`   | `string`                     |               |
+| `value`   | `string`                     |               |
 
 ### License
 

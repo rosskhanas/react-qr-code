@@ -79,20 +79,15 @@ ReactDOM.render(
           <Title>React QR Code</Title>
           <Paragraph>Simple QR Code for React and React Native.</Paragraph>
           <Paragraph>
-            A project by{" "}
-            <Link href="https://twitter.com/rosskhanas">Ross Khanas</Link>.
+            A project by <Link href="https://twitter.com/rosskhanas">Ross Khanas</Link>.
           </Paragraph>
         </Header>
         <Content>
           <SubTitle>Demo</SubTitle>
           <ContentCenter>
-            <QRCode id="QRCode" value={value} />
+            <QRCode id="QRCode" title="Custom Title" value={value} />
             <InputContainer>
-              <input
-                type="button"
-                value="Download QR"
-                onClick={this.onImageCownload}
-              />
+              <input type="button" value="Download QR" onClick={this.onImageCownload} />
               <Input type="text" value={value} onChange={this.onValueChange} />
             </InputContainer>
           </ContentCenter>
@@ -102,11 +97,8 @@ ReactDOM.render(
           </SyntaxHighlighter>
         </Content>
         <Footer>
-          Released under the{" "}
-          <Link href={`${repositoryLink}/blob/master/LICENSE`}>
-            MIT license
-          </Link>
-          . <Link href={repositoryLink}>View source</Link>.
+          Released under the <Link href={`${repositoryLink}/blob/master/LICENSE`}>MIT license</Link>.{" "}
+          <Link href={repositoryLink}>View source</Link>.
         </Footer>
       </div>
     );
