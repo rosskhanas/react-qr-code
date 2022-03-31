@@ -46,6 +46,11 @@
     "react": "^16.x || ^17.x",
     "react-native-svg": "*"
   },
+  "peerDependenciesMeta": {
+    "react-native-svg": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.10.1",
