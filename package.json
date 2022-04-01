@@ -1,6 +1,6 @@
 {
   "name": "react-qr-code",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A QR code generator for React and React Native.",
   "keywords": [
     "react",
