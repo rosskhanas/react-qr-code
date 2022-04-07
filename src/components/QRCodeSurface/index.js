@@ -14,7 +14,9 @@ const defaultProps = {
 };
 
 const QRCodeSurface = ({ children, size, title, xmlns, ...props }) => (
-  <svg {...props} height={size} width={size} xmlns={xmlns}>
+  const viewBox = "0 0 " + size + " " + size;
+  
+  <svg {...props} height={size} width={size} viewBox={viewBox} xmlns={xmlns}>
     {title ? <title>{title}</title> : null}
     {children}
   </svg>
