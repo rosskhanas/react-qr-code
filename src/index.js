@@ -7,8 +7,8 @@ import QRCodeCell from "./components/QRCodeCell";
 import QRCodeSurface from "./components/QRCodeSurface";
 
 const propTypes = {
-  bgColor: PropTypes.string,
-  fgColor: PropTypes.string,
+  bgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  fgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   level: PropTypes.oneOf(["L", "M", "Q", "H"]),
   size: PropTypes.number,
   value: PropTypes.string.isRequired,
@@ -32,19 +32,17 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
     <QRCodeSurface {...props} size={size}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
-          const fill = cell ? fgColor : bgColor;
           const transformX = Math.round(cellIndex * tileSize);
           const transformY = Math.round(rowIndex * tileSize);
           const qrItemWidth = Math.round((cellIndex + 1) * tileSize) - transformX;
           const qrItemHeight = Math.round((rowIndex + 1) * tileSize) - transformY;
-          const d = `M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} ${qrItemHeight} L 0 ${qrItemHeight} Z`;
           return (
             <QRCodeCell
               /* eslint-disable react/no-array-index-key */
               key={`rectangle-${rowIndex}-${cellIndex}`}
               /* eslint-enable react/no-array-index-key */
-              d={d}
-              fill={fill}
+              d={`M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} ${qrItemHeight} L 0 ${qrItemHeight} Z`}
+              fill={cell ? fgColor : bgColor}
               transformX={transformX}
               transformY={transformY}
             />
