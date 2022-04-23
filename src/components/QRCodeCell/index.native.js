@@ -4,7 +4,7 @@ import { Path } from "react-native-svg";
 
 const propTypes = {
   d: PropTypes.string.isRequired,
-  fill: PropTypes.string.isRequired,
+  fill: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
   transformX: PropTypes.number.isRequired,
   transformY: PropTypes.number.isRequired,
 };
