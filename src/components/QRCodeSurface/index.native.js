@@ -4,13 +4,13 @@ import { Svg } from "react-native-svg";
 
 const propTypes = {
   children: PropTypes.array.isRequired,
-  size: PropTypes.number.isRequired,
+  viewBox: PropTypes.string.isRequired,
 };
 
 const defaultProps = {};
 
-const QRCodeSurface = ({ children, size, ...props }) => (
-  <Svg {...props} height={size} style={{ height: size, width: size }} width={size}>
+const QRCodeSurface = ({ children, viewBox, ...props }) => (
+  <Svg {...props} viewBox={viewBox}>
     {children}
   </Svg>
 );

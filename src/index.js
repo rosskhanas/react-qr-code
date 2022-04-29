@@ -29,7 +29,7 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
   const cells = qrcode.modules;
   const tileSize = size / cells.length;
   return (
-    <QRCodeSurface {...props} size={size}>
+    <QRCodeSurface {...props} viewBox={`0 0 ${size}px ${size}px`}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
           const transformX = Math.round(cellIndex * tileSize);
