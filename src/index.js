@@ -12,6 +12,7 @@ const propTypes = {
   level: PropTypes.oneOf(["L", "M", "Q", "H"]),
   size: PropTypes.number,
   value: PropTypes.string.isRequired,
+  useViewBox: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -19,9 +20,10 @@ const defaultProps = {
   fgColor: "#000000",
   level: "L",
   size: 256,
+  useViewBox: false,
 };
 
-const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
+const QRCode = ({ bgColor, fgColor, level, size, value, useViewBox, ...props }) => {
   // We'll use type === -1 to force QRCode to automatically pick the best type.
   const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   qrcode.addData(value);
@@ -29,7 +31,7 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
   const cells = qrcode.modules;
   const tileSize = size / cells.length;
   return (
-    <QRCodeSurface {...props} viewBox={`0 0 ${size}px ${size}px`}>
+    <QRCodeSurface {...props} size={size} useViewBox={useViewBox}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
           const transformX = Math.round(cellIndex * tileSize);
