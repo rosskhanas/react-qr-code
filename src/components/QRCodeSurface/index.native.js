@@ -16,7 +16,7 @@ const QRCodeSurface = ({ children, size, useViewBox, ...props }) => (
   <Svg
     {...props}
     {...(useViewBox
-      ? { viewBox: `0 0 ${size}px ${size}px` }
+      ? { viewBox: `0 0 ${size} ${size}` }
       : { width: size, height: size, style: { height: size, width: size } })}
   >
     {children}
