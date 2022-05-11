@@ -1,6 +1,6 @@
 {
-  "name": "react-qr-code",
-  "version": "2.0.7",
+  "name": "@nico-martin/react-qr-code",
+  "version": "2.0.9",
   "description": "A QR code generator for React and React Native.",
   "keywords": [
     "react",
@@ -9,10 +9,7 @@
     "code",
     "generator"
   ],
-  "author": {
-    "name": "Ross Khanas",
-    "email": "rtkhanas@gmail.com"
-  },
+  "author": "Nico Martin <mail@nico.dev>",
   "scripts": {
     "demo-web-watch": "babel ./src --out-dir=./demo/src/lib --watch",
     "demo": "cd demo && yarn start",
@@ -30,7 +27,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:rosskhanas/react-qr-code.git"
+    "url": "git+ssh://git@github.com/rosskhanas/react-qr-code.git"
   },
   "files": [
     "lib",
@@ -79,5 +76,12 @@
     "react-native-svg": "^12.1.1",
     "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/rosskhanas/react-qr-code/issues"
+  },
+  "homepage": "https://github.com/rosskhanas/react-qr-code#readme",
+  "directories": {
+    "test": "test"
   }
 }
