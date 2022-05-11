@@ -4,6 +4,7 @@ import React from "react";
 const propTypes = {
   children: PropTypes.array.isRequired,
   size: PropTypes.number.isRequired,
+  useViewBox: PropTypes.bool,
   title: PropTypes.string,
   xmlns: PropTypes.string,
 };
@@ -11,10 +12,11 @@ const propTypes = {
 const defaultProps = {
   title: undefined,
   xmlns: "http://www.w3.org/2000/svg",
+  useViewBox: false,
 };
 
-const QRCodeSurface = ({ children, size, title, xmlns, ...props }) => (
-  <svg {...props} height={size} width={size} xmlns={xmlns}>
+const QRCodeSurface = ({ children, size, useViewBox, title, xmlns, ...props }) => (
+  <svg {...props} {...(useViewBox ? { viewBox: `0 0 ${size} ${size}` } : { width: size, height: size })} xmlns={xmlns}>
     {title ? <title>{title}</title> : null}
     {children}
   </svg>
