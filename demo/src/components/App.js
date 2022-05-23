@@ -85,7 +85,19 @@ ReactDOM.render(
         <Content>
           <SubTitle>Demo</SubTitle>
           <ContentCenter>
-            <QRCode id="QRCode" title="Custom Title" value={value} />
+            <div>
+              <QRCode id="QRCode" title="Custom Title" value={value} />
+            </div>
+            <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
+              <QRCode
+                id="QRCodeScaled"
+                size={256}
+                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                title="Custom Title"
+                value={value}
+                viewBox={`0 0 256 256`}
+              />
+            </div>
             <InputContainer>
               <input type="button" value="Download QR" onClick={this.onImageCownload} />
               <Input type="text" value={value} onChange={this.onValueChange} />

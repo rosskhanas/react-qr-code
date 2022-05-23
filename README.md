@@ -45,12 +45,26 @@ ReactDOM.render(<QRCode value="hey" />, document.getElementById("Container"));
 ```
 
 Note: If the QR code is likely to appear next to dark objects, you will need to wrap it in a light-colored container to preserve the '[quiet zone](https://qrworld.wordpress.com/2011/08/09/the-quiet-zone/)', e.g. 
+
 ```javascript
 <div style={{ background: 'white', padding: '16px' }}>
     <QRCode ... />
 </div>
 ```
 
+Responsive QR code example:
+
+```javascript
+// Can be anything instead of `maxWidth` that limits the width.
+<div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
+    <QRCode
+    size={256}
+    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+    value={value}
+    viewBox={`0 0 256 256`}
+    />
+</div>
+```
 
 ### API
 
