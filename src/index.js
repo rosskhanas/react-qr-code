@@ -9,7 +9,7 @@ import QRCodeSurface from "./components/QRCodeSurface";
 const propTypes = {
   bgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   fgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  level: PropTypes.oneOf(["L", "M", "Q", "H"]),
+  level: PropTypes.string,
   size: PropTypes.number,
   value: PropTypes.string.isRequired,
 };
