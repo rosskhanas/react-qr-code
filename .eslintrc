@@ -3,12 +3,8 @@
   "extends": ["airbnb", "prettier"],
   "rules": {
     "react/forbid-prop-types": "off",
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [".js"]
-      }
-    ],
+    "react/function-component-definition": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
     "react/jsx-props-no-spreading": "off"
   }
 }
