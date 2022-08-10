@@ -13,11 +13,11 @@
     "qr.js": "^0.0.0",
     "react": "16.11.0",
     "react-native": "0.62.3",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.4.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/runtime": "^7.9.2",
+    "@babel/core": "^7.18.10",
+    "@babel/runtime": "^7.18.9",
     "@react-native-community/eslint-config": "^1.0.0",
     "babel-jest": "^25.3.0",
     "eslint": "^6.8.0",
