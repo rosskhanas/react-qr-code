@@ -9,7 +9,9 @@ declare module "react-qr-code" {
     level?: string; // defaults to 'L' , Can be one of 'L,M,H,Q'
   }
 
-  class QRCode extends React.Component<QRCodeProps, any> {}
+  class QRCode extends React.Component<QRCodeProps, any> {
+    render(): JSX.Element
+  }
 
   export default QRCode;
 }
