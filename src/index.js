@@ -2,7 +2,7 @@
 import QRCodeImpl from "qr.js/lib/QRCode";
 import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 import PropTypes from "prop-types";
-import React, { memo } from "react";
+import React, { memo, forwardRef } from "react";
 import QRCodeCell from "./components/QRCodeCell";
 import QRCodeSurface from "./components/QRCodeSurface";
 
@@ -21,7 +21,7 @@ const defaultProps = {
   size: 256,
 };
 
-const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
+const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, ref) => {
   // We'll use type === -1 to force QRCode to automatically pick the best type.
   const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   qrcode.addData(value);
@@ -29,7 +29,7 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
   const cells = qrcode.modules;
   const tileSize = size / cells.length;
   return (
-    <QRCodeSurface {...props} size={size}>
+    <QRCodeSurface {...props} size={size} ref={ref}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
           const transformX = Math.round(cellIndex * tileSize);
@@ -51,8 +51,9 @@ const QRCode = ({ bgColor, fgColor, level, size, value, ...props }) => {
       )}
     </QRCodeSurface>
   );
-};
+});
 
+QRCode.displayName = "QRCode";
 QRCode.propTypes = propTypes;
 QRCode.defaultProps = defaultProps;
 

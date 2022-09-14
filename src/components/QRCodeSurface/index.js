@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { forwardRef } from "react";
 
 const propTypes = {
   children: PropTypes.array.isRequired,
@@ -13,13 +13,14 @@ const defaultProps = {
   xmlns: "http://www.w3.org/2000/svg",
 };
 
-const QRCodeSurface = ({ children, size, title, xmlns, ...props }) => (
-  <svg {...props} height={size} width={size} xmlns={xmlns}>
+const QRCodeSurface = forwardRef(({ children, size, title, xmlns, ...props }, ref) => (
+  <svg {...props} height={size} width={size} xmlns={xmlns} ref={ref}>
     {title ? <title>{title}</title> : null}
     {children}
   </svg>
-);
+));
 
+QRCodeSurface.displayName = "QRCodeSurface";
 QRCodeSurface.propTypes = propTypes;
 QRCodeSurface.defaultProps = defaultProps;
 
