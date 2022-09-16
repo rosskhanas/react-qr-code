@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { forwardRef } from "react";
 import { Svg } from "react-native-svg";
 
 const propTypes = {
@@ -9,12 +9,13 @@ const propTypes = {
 
 const defaultProps = {};
 
-const QRCodeSurface = ({ children, size, ...props }) => (
-  <Svg {...props} height={size} style={{ height: size, width: size }} width={size}>
+const QRCodeSurface = forwardRef(({ children, size, ...props }, ref) => (
+  <Svg {...props} height={size} ref={ref} style={{ height: size, width: size }} width={size}>
     {children}
   </Svg>
-);
+));
 
+QRCodeSurface.displayName = "QRCodeSurface";
 QRCodeSurface.propTypes = propTypes;
 QRCodeSurface.defaultProps = defaultProps;
 

@@ -14,7 +14,7 @@ const defaultProps = {
 };
 
 const QRCodeSurface = forwardRef(({ children, size, title, xmlns, ...props }, ref) => (
-  <svg {...props} height={size} width={size} xmlns={xmlns} ref={ref}>
+  <svg {...props} height={size} ref={ref} width={size} xmlns={xmlns}>
     {title ? <title>{title}</title> : null}
     {children}
   </svg>
