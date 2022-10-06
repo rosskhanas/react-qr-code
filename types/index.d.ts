@@ -1,7 +1,7 @@
 declare module "react-qr-code" {
   import * as React from "react";
 
-  export interface QRCodeProps extends React.SVGProps<SVGElement> {
+  export interface QRCodeProps extends React.SVGProps<SVGSVGElement> {
     value: string;
     size?: number; // defaults to 128
     bgColor?: string; // defaults to '#FFFFFF'
@@ -10,7 +10,7 @@ declare module "react-qr-code" {
   }
 
   class QRCode extends React.Component<QRCodeProps, any> {
-    render(): JSX.Element
+    render(): JSX.Element;
   }
 
   export default QRCode;
