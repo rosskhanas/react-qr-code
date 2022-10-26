@@ -27,33 +27,33 @@ const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, r
   qrcode.addData(value);
   qrcode.make();
   const cells = qrcode.modules;
-  const viewBox = `0 0 ${cells.length} ${cells.length}`
-
   return (
-    <QRCodeSurface {...props} size={size} ref={ref} viewBox={viewBox}>
+    <QRCodeSurface {...props} size={size} ref={ref} length={cells.length} bgColor={bgColor}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
-          const transformX = cellIndex;
-          const transformY = rowIndex;
-          const qrItemWidth = 1;
-          const qrItemHeight = 1;
-          return (
+          const posX = cellIndex;
+          const posY = rowIndex;
+          return cell ? (
             <QRCodeCell
               /* eslint-disable react/no-array-index-key */
               key={`rectangle-${rowIndex}-${cellIndex}`}
               /* eslint-enable react/no-array-index-key */
-              d={`M 0 0 L ${qrItemWidth} 0 L ${qrItemWidth} ${qrItemHeight} L 0 ${qrItemHeight} Z`}
-              fill={cell ? fgColor : bgColor}
-              transformX={transformX}
-              transformY={transformY}
+              d={`M ${posX} ${posY} l 1 0 0 1 -1 0 Z`}
+              /* The path explained
+                M  x y    // absolute move to x and y coordinate
+                l  1 0    // relative line to x+1
+                   0 1    // relative line to y+1
+                  -1 0    // relative line to x-1
+                Z         // close path
+              */
+              fill={fgColor}
             />
-          );
+          ) : null; // Return nothing if empty pixel
         })
       )}
     </QRCodeSurface>
   );
 });
-
 QRCode.displayName = "QRCode";
 QRCode.propTypes = propTypes;
 QRCode.defaultProps = defaultProps;
