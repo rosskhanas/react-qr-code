@@ -27,15 +27,16 @@ const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, r
   qrcode.addData(value);
   qrcode.make();
   const cells = qrcode.modules;
-  const tileSize = size / cells.length;
+  const viewBox = `0 0 ${cells.length} ${cells.length}`
+
   return (
-    <QRCodeSurface {...props} size={size} ref={ref}>
+    <QRCodeSurface {...props} size={size} ref={ref} viewBox={viewBox}>
       {cells.map((row, rowIndex) =>
         row.map((cell, cellIndex) => {
-          const transformX = Math.round(cellIndex * tileSize);
-          const transformY = Math.round(rowIndex * tileSize);
-          const qrItemWidth = Math.round((cellIndex + 1) * tileSize) - transformX;
-          const qrItemHeight = Math.round((rowIndex + 1) * tileSize) - transformY;
+          const transformX = cellIndex;
+          const transformY = rowIndex;
+          const qrItemWidth = 1;
+          const qrItemHeight = 1;
           return (
             <QRCodeCell
               /* eslint-disable react/no-array-index-key */
