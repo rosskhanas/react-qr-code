@@ -46,7 +46,7 @@ const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, r
   qrcode.make();
   const cells = qrcode.modules;
   return (
-    <QRCodeSurface {...props} size={size} ref={ref} length={cells.length} bgColor={bgColor}>
+    <QRCodeSurface {...props} size={size} ref={ref} dataSize={cells.length} bgColor={bgColor}>
       <QRCodeCell
         d={makePath(cells)}
         fill={fgColor}
