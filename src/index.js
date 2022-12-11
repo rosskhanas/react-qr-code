@@ -2,9 +2,8 @@
 import QRCodeImpl from "qr.js/lib/QRCode";
 import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
-import QRCodeCell from "./components/QRCodeCell";
-import QRCodeSurface from "./components/QRCodeSurface";
+import React, { forwardRef } from "react";
+import QRCodeSvg from "./QRCodeSvg";
 
 const propTypes = {
   bgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -21,41 +20,31 @@ const defaultProps = {
   size: 256,
 };
 
-function makePath(cells) {
-    /**  How each cell is drawn:
-     *
-     *    M  x y    // absolute move to x and y coordinate
-     *    l  1 0    // relative line to x+1
-     *       0 1    // relative line to y+1
-     *      -1 0    // relative line to x-1
-     *    Z         // close path
-     */
-    return cells.map((row, rowIndex) =>
-        row.map((cell, cellIndex) => {
-            const posX = cellIndex
-            const posY = rowIndex
-            return cell ? `M ${posX} ${posY} l 1 0 0 1 -1 0 Z` : "" // Return nothing if empty pixel
-        }).join(" "),
-    ).join(" ")
-}
-
 const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, ref) => {
-  // We'll use type === -1 to force QRCode to automatically pick the best type.
+  // Use type === -1 to automatically pick the best type.
   const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   qrcode.addData(value);
   qrcode.make();
   const cells = qrcode.modules;
   return (
-    <QRCodeSurface {...props} size={size} ref={ref} dataSize={cells.length} bgColor={bgColor}>
-      <QRCodeCell
-        d={makePath(cells)}
-        fill={fgColor}
-      />
-    </QRCodeSurface>
+    <QRCodeSvg
+      {...props}
+      bgColor={bgColor}
+      d={cells
+        .map((row, rowIndex) =>
+          row.map((cell, cellIndex) => (cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
+        )
+        .join(" ")}
+      fgColor={fgColor}
+      ref={ref}
+      size={size}
+      viewBoxSize={cells.length}
+    />
   );
 });
+
 QRCode.displayName = "QRCode";
 QRCode.propTypes = propTypes;
 QRCode.defaultProps = defaultProps;
 
-export default memo(QRCode);
+export default QRCode;
