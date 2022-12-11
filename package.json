@@ -15,16 +15,16 @@
   },
   "scripts": {
     "demo-web-watch": "babel ./src --out-dir=./demo/src/lib --watch",
-    "demo": "cd demo && yarn start",
-    "demo:build": "cd demo && yarn build",
+    "demo": "cd demo && npm run start",
+    "demo:build": "cd demo && npm run build",
     "demo:deploy": "gh-pages -d demo/build",
     "storybook-demo-watch": "babel ./src --out-dir=./storybooks/demo/lib --watch",
-    "storybook-mobile-start": "cd ./storybooks/demo && yarn start",
-    "storybook-ios": "cd ./storybooks/demo && yarn ios",
-    "storybook-android": "cd ./storybooks/demo && yarn android",
+    "storybook-mobile-start": "cd ./storybooks/demo && npm run start",
+    "storybook-ios": "cd ./storybooks/demo && npm run ios",
+    "storybook-android": "cd ./storybooks/demo && npm run android",
     "clean": "rimraf lib",
     "lint": "eslint src",
-    "build": "yarn clean && babel src --out-dir lib"
+    "build": "npm run clean && babel src --out-dir lib"
   },
   "license": "MIT",
   "repository": {
@@ -66,8 +66,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "gh-pages": "^3.2.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.4",
     "react-native-svg": "^12.4.4",
     "rimraf": "^3.0.2"
   }
