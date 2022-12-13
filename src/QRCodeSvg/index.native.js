@@ -22,7 +22,7 @@ const QRCodeSvg = forwardRef(({ bgColor, bgD, fgD, fgColor, size, viewBoxSize, .
     viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
     width={size}
   >
-    <path d={bgD} fill={bgColor} />
+    <Path d={bgD} fill={bgColor} />
     <Path d={fgD} fill={fgColor} />
   </Svg>
 ));
