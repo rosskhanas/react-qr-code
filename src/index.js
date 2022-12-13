@@ -30,12 +30,17 @@ const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, r
     <QRCodeSvg
       {...props}
       bgColor={bgColor}
-      d={cells
+      bgD={cells
+        .map((row, rowIndex) =>
+          row.map((cell, cellIndex) => (!cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
+        )
+        .join(" ")}
+      fgColor={fgColor}
+      fgD={cells
         .map((row, rowIndex) =>
           row.map((cell, cellIndex) => (cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
         )
         .join(" ")}
-      fgColor={fgColor}
       ref={ref}
       size={size}
       viewBoxSize={cells.length}

@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
-import { Path, Rect, Svg } from "react-native-svg";
+import { Path, Svg } from "react-native-svg";
 
 const propTypes = {
   bgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+  bgD: PropTypes.string.isRequired,
   fgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
-  d: PropTypes.string.isRequired,
+  fgD: PropTypes.string.isRequired,
   size: PropTypes.number.isRequired,
   viewBoxSize: PropTypes.number.isRequired,
 };
 
 const defaultProps = {};
 
-const QRCodeSvg = forwardRef(({ bgColor, d, fgColor, size, viewBoxSize, ...props }, ref) => (
+const QRCodeSvg = forwardRef(({ bgColor, bgD, fgD, fgColor, size, viewBoxSize, ...props }, ref) => (
   <Svg
     {...props}
     height={size}
@@ -21,8 +22,8 @@ const QRCodeSvg = forwardRef(({ bgColor, d, fgColor, size, viewBoxSize, ...props
     viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
     width={size}
   >
-    <Rect fill={bgColor} height={viewBoxSize} width={viewBoxSize} x={0} y={0} />
-    <Path d={d} fill={fgColor} />
+    <path d={bgD} fill={bgColor} />
+    <Path d={fgD} fill={fgColor} />
   </Svg>
 ));
 
