@@ -14,7 +14,7 @@ import Link from "../components-styled/Link";
 import Paragraph from "../components-styled/Paragraph";
 import SubTitle from "../components-styled/SubTitle";
 import Title from "../components-styled/Title";
-import QRCode from "../lib";
+import QRCode from "react-qr-code";
 
 const GlobalStyle = createGlobalStyle`
 body{margin:0;padding:0;font-family:Fira Sans,Helvetica Neue,Apple SD Gothic Neo,Malgun Gothic,Segoe UI,sans-serif;font-weight:200;}
@@ -88,16 +88,7 @@ ReactDOM.render(
             <div>
               <QRCode id="QRCode" title="Custom Title" value={value} />
             </div>
-            <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
-              <QRCode
-                id="QRCodeScaled"
-                size={256}
-                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                title="Custom Title"
-                value={value}
-                viewBox={`0 0 256 256`}
-              />
-            </div>
+
             <InputContainer>
               <input type="button" value="Download QR" onClick={this.onImageCownload} />
               <Input type="text" value={value} onChange={this.onValueChange} />
