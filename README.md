@@ -24,13 +24,13 @@ A <QRCode /> component for React. This library works with React and React Native
 ### Installation
 
 ```
-yarn add react-qr-code
+npm i react-qr-code
 ```
 
 When using this library with React Native, you will also need to [have `react-native-svg` installed](https://github.com/react-native-svg/react-native-svg#installation).
 
 ```
-yarn add react-native-svg
+npm i react-native-svg
 cd ios && pod install
 ```
 
