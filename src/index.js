@@ -20,7 +20,7 @@ const defaultProps = {
   size: 256,
 };
 
-const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, ref) => {
+export const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...props }, ref) => {
   // Use type === -1 to automatically pick the best type.
   const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
   qrcode.addData(value);
