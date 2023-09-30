@@ -32,13 +32,13 @@ export const QRCode = forwardRef(({ bgColor, fgColor, level, size, value, ...pro
       bgColor={bgColor}
       bgD={cells
         .map((row, rowIndex) =>
-          row.map((cell, cellIndex) => (!cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
+          row.map((cell, cellIndex) => (!cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" "),
         )
         .join(" ")}
       fgColor={fgColor}
       fgD={cells
         .map((row, rowIndex) =>
-          row.map((cell, cellIndex) => (cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
+          row.map((cell, cellIndex) => (cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" "),
         )
         .join(" ")}
       ref={ref}
