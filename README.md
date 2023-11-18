@@ -74,7 +74,6 @@ Responsive QR code example:
 | `fgColor` | `string`                     | '#000000'     |
 | `level`   | `string` (`'L' 'M' 'Q' 'H'`) | 'L'           |
 | `size`    | `number`                     | 256           |
-| `title`   | `string`                     |               |
 | `value`   | `string`                     |               |
 
 ### License
