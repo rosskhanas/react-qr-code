@@ -68,14 +68,14 @@ Responsive QR code example:
 
 ### API
 
-| prop      | type                         | default value |
-| --------- | ---------------------------- | ------------- |
-| `bgColor` | `string`                     | '#FFFFFF'     |
-| `fgColor` | `string`                     | '#000000'     |
-| `level`   | `string` (`'L' 'M' 'Q' 'H'`) | 'L'           |
-| `size`    | `number`                     | 256           |
-| `title`   | `string`                     |               |
-| `value`   | `string`                     |               |
+| prop      | type                         | default value | platform          |
+| --------- | ---------------------------- | ------------- |-------------------|
+| `bgColor` | `string`                     | '#FFFFFF'     | web, ios, android |
+| `fgColor` | `string`                     | '#000000'     | web, ios, android |
+| `level`   | `string` (`'L' 'M' 'Q' 'H'`) | 'L'           | web, ios, android |
+| `size`    | `number`                     | 256           | web, ios, android |
+| `title`   | `string`                     |               | web               |
+| `value`   | `string`                     |               | web, ios, android |
 
 ### License
 
