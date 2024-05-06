@@ -18,7 +18,7 @@ const defaultProps = {
 };
 
 const QRCodeSvg = forwardRef(({ bgColor, bgD, fgD, fgColor, size, title, viewBoxSize, ...props }, ref) => (
-  <svg {...props} height={size} ref={ref} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width={size}>
+  <svg {...props} height={size} ref={ref} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width={size} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     {title ? <title>{title}</title> : null}
     <path d={bgD} fill={bgColor} />
     <path d={fgD} fill={fgColor} />
