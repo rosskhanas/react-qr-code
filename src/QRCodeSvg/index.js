@@ -12,21 +12,17 @@ const propTypes = {
   xmlns: PropTypes.string,
 };
 
-const defaultProps = {
-  title: undefined,
-  xmlns: "http://www.w3.org/2000/svg",
-};
-
-const QRCodeSvg = forwardRef(({ bgColor, bgD, fgD, fgColor, size, title, viewBoxSize, ...props }, ref) => (
-  <svg {...props} height={size} ref={ref} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width={size}>
-    {title ? <title>{title}</title> : null}
-    <path d={bgD} fill={bgColor} />
-    <path d={fgD} fill={fgColor} />
-  </svg>
-));
+const QRCodeSvg = forwardRef(
+  ({ bgColor, bgD, fgD, fgColor, size, title, viewBoxSize, xmlns = "http://www.w3.org/2000/svg", ...props }, ref) => (
+    <svg {...props} height={size} ref={ref} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width={size} xmlns={xmlns}>
+      {title ? <title>{title}</title> : null}
+      <path d={bgD} fill={bgColor} />
+      <path d={fgD} fill={fgColor} />
+    </svg>
+  ),
+);
 
 QRCodeSvg.displayName = "QRCodeSvg";
 QRCodeSvg.propTypes = propTypes;
-QRCodeSvg.defaultProps = defaultProps;
 
 export default QRCodeSvg;

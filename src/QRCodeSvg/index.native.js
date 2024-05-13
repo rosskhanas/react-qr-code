@@ -11,17 +11,8 @@ const propTypes = {
   viewBoxSize: PropTypes.number.isRequired,
 };
 
-const defaultProps = {};
-
 const QRCodeSvg = forwardRef(({ bgColor, bgD, fgD, fgColor, size, viewBoxSize, ...props }, ref) => (
-  <Svg
-    {...props}
-    height={size}
-    ref={ref}
-    style={{ height: size, width: size }}
-    viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
-    width={size}
-  >
+  <Svg {...props} height={size} ref={ref} style={{ height: size, width: size }} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} width={size}>
     <Path d={bgD} fill={bgColor} />
     <Path d={fgD} fill={fgColor} />
   </Svg>
@@ -29,6 +20,5 @@ const QRCodeSvg = forwardRef(({ bgColor, bgD, fgD, fgColor, size, viewBoxSize, .
 
 QRCodeSvg.displayName = "QRCodeSvg";
 QRCodeSvg.propTypes = propTypes;
-QRCodeSvg.defaultProps = defaultProps;
 
 export default QRCodeSvg;
