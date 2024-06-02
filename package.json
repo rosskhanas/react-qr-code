@@ -24,7 +24,8 @@
     "storybook-android": "cd ./storybooks/demo && npm run android",
     "clean": "rimraf lib",
     "lint": "biome check --apply ./src",
-    "build": "npm run clean && babel src --out-dir lib"
+    "build": "npm run clean && babel src --out-dir lib",
+    "release": "release-it"
   },
   "license": "MIT",
   "repository": {
@@ -62,6 +63,7 @@
     "react-dom": "18.0.0",
     "react-native": "0.69.4",
     "react-native-svg": "^12.5.1",
+    "release-it": "^17.3.0",
     "rimraf": "^5.0.7"
   }
 }
