@@ -1,15 +1,6 @@
-# Compiled files
-storybooks/demo/lib
-lib
-
-# Logs
-*.log
-
-# Dependency directories
-node_modules
-
-# JetBrains
 .idea
-
-# Visual Studio Code
+.log
 .vscode
+
+lib
+node_modules

@@ -3,11 +3,11 @@
   "version": "2.0.14",
   "description": "A QR code generator for React and React Native.",
   "keywords": [
-    "react",
-    "react-native",
-    "qr",
     "code",
-    "generator"
+    "generator",
+    "qr",
+    "react",
+    "react-native"
   ],
   "author": {
     "name": "Ross Khanas",
@@ -16,12 +16,8 @@
   "scripts": {
     "demo-web-watch": "babel ./src --out-dir=./demo/src/lib --watch",
     "demo": "cd demo && npm run start",
-    "demo:build": "cd demo && npm run build",
-    "demo:deploy": "gh-pages -d demo/build",
-    "storybook-demo-watch": "babel ./src --out-dir=./storybooks/demo/lib --watch",
-    "storybook-mobile-start": "cd ./storybooks/demo && npm run start",
-    "storybook-ios": "cd ./storybooks/demo && npm run ios",
-    "storybook-android": "cd ./storybooks/demo && npm run android",
+    "demo:build": "cd demo && npx expo export -p web",
+    "demo:deploy": "gh-pages -d demo/dist",
     "clean": "rimraf lib",
     "lint": "biome check --apply ./src",
     "build": "npm run clean && babel src --out-dir lib",
@@ -58,11 +54,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "gh-pages": "^3.2.3",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.4",
-    "react-native-svg": "^12.5.1",
+    "gh-pages": "^6.1.1",
     "release-it": "^17.3.0",
     "rimraf": "^5.0.7"
   }
