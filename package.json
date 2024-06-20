@@ -39,13 +39,7 @@
     "qr.js": "0.0.0"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native-svg": "*"
-  },
-  "peerDependenciesMeta": {
-    "react-native-svg": {
-      "optional": true
-    }
+    "react": "*"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
