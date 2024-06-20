@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
+    "@release-it/conventional-changelog": "^8.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
