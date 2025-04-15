@@ -77,7 +77,7 @@ Responsive QR code example:
 | `title`   | `string`                     |               | web               |
 | `value`   | `string`                     |               | web, ios, android |
 
-Adheres to the [official QR spec](https://www.qrcode.com/en/about/version.html) and can store up to 2953 characters in `value`
+Adheres to the [official QR spec](https://www.qrcode.com/en/about/version.html) and can store up to 2953 characters in `value`.
 
 ### License
 
