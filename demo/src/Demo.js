@@ -105,8 +105,8 @@ document.getElementById('root')
         <Title>React QR Code</Title>
         <Paragraph>Simple QR Code for React and React Native.</Paragraph>
         <Paragraph>
-          A project by <Link href="https://twitter.com/rosskhanas">Ross Khanas</Link>.
-          and <Link href="https://twitter.com/e3mandle6ni">Emandleni Moyo</Link>.
+          A project by <Link href="https://twitter.com/rosskhanas">Ross Khanas</Link>
+          & <Link href="https://twitter.com/e3mandle6ni">Emandleni Moyo</Link>.
         </Paragraph>
       </Header>
       <Content>
