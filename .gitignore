@@ -5,3 +5,6 @@
 
 lib
 node_modules
+
+# Ignore QR data file
+demo/src/data/qrData.json
