@@ -79,6 +79,60 @@ Responsive QR code example:
 
 Adheres to the [official QR spec](https://www.qrcode.com/en/about/version.html) and can store up to 2953 characters in `value`.
 
+### Styling Updates
+
+The project now uses a global stylesheet and modular styled-components for better organization and maintainability.
+
+#### Global Styles
+
+Global styles are defined in `src/styles/GlobalStyle.js` using `styled-components`. These styles are applied across the entire application.
+
+Example:
+```javascript
+import GlobalStyle from "./styles/GlobalStyle";
+
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <YourComponent />
+    </>
+  );
+}
+```
+
+#### Modular Styled Components
+
+Component-specific styles are moved to `src/styles/StyledComponents.js`.
+
+Example:
+```javascript
+import { ListContainer, Table, TableHeader, TableRow, TableCell } from "./styles/StyledComponents";
+
+function Demo() {
+  return (
+    <ListContainer>
+      <Table>
+        <thead>
+          <tr>
+            <TableHeader>ID</TableHeader>
+            <TableHeader>Value</TableHeader>
+          </tr>
+        </thead>
+        <tbody>
+          <TableRow>
+            <TableCell>1</TableCell>
+            <TableCell>Example</TableCell>
+          </TableRow>
+        </tbody>
+      </Table>
+    </ListContainer>
+  );
+}
+```
+
+Refer to the `src/styles/GlobalStyle.js` and `src/styles/StyledComponents.js` files for more details.
+
 ### License
 
 MIT
