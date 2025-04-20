@@ -4,6 +4,7 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
 import { createGlobalStyle } from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import axios from 'axios';
 import QRCode from "./lib";
 import Content from "./web/Content";
 import ContentCenter from "./web/ContentCenter";
@@ -45,16 +46,38 @@ document.getElementById('root')
 
     img.onload = () => {
       const qrId = uuidv4(); // Assign an auto generated UUID
+      const rawTextValue = value; // The raw text value of the QR code
+      const timestamp = new Date().toISOString();
 
       canvas.width = img.width;
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
       const pngFile = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
-      downloadLink.download = "QRCode";
+      downloadLink.download = "QRCode"+qrId;
       downloadLink.href = `${pngFile}`;
       downloadLink.click();
-      console.log(`QR Code ID: ${qrId}`); // Log the QR code ID after the download action is triggered to confirm
+
+      console.log({
+        id: qrId,
+        rawTextValue,
+        createdAt: timestamp,
+        updatedAt: timestamp
+      });
+
+      // Send QR code data to the backend
+      axios.post("http://localhost:3001/save-qr-data", {
+        id: qrId,
+        rawTextValue,
+        createdAt: timestamp,
+        updatedAt: timestamp
+      })
+      .then(() => {
+        console.log("QR code "+qrId+ " saved successfully.");
+      })
+      .catch((error) => {
+        console.error("Error saving QR code data:", error);
+      });
     };
     img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
