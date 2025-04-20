@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
 import { createGlobalStyle } from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 import QRCode from "./lib";
 import Content from "./web/Content";
 import ContentCenter from "./web/ContentCenter";
@@ -34,6 +35,30 @@ ReactDOM.render(
 document.getElementById('root')
 );
 `;
+
+  const handleDownload = () => {
+    const svg = document.getElementById("QRCode");
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+
+    img.onload = () => {
+      const qrId = uuidv4(); // Assign an auto generated UUID
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      const pngFile = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.download = "QRCode";
+      downloadLink.href = `${pngFile}`;
+      downloadLink.click();
+      console.log(`QR Code ID: ${qrId}`); // Log the QR code ID after the download action is triggered to confirm
+    };
+    img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
+  };
+
   return (
     <div>
       <GlobalStyle />
@@ -71,24 +96,7 @@ document.getElementById('root')
             <input
               type="button"
               value="Download QR"
-              onClick={() => {
-                const svg = document.getElementById("QRCode");
-                const svgData = new XMLSerializer().serializeToString(svg);
-                const canvas = document.createElement("canvas");
-                const ctx = canvas.getContext("2d");
-                const img = new Image();
-                img.onload = () => {
-                  canvas.width = img.width;
-                  canvas.height = img.height;
-                  ctx.drawImage(img, 0, 0);
-                  const pngFile = canvas.toDataURL("image/png");
-                  const downloadLink = document.createElement("a");
-                  downloadLink.download = "QRCode";
-                  downloadLink.href = `${pngFile}`;
-                  downloadLink.click();
-                };
-                img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
-              }}
+              onClick={handleDownload}
             />
             <Input
               type="text"
