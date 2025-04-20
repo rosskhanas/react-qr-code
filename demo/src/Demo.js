@@ -1,10 +1,11 @@
 import js from "highlight.js/lib/languages/javascript";
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
 import { createGlobalStyle } from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import axios from 'axios';
+import styled from "styled-components";
 import QRCode from "./lib";
 import Content from "./web/Content";
 import ContentCenter from "./web/ContentCenter";
@@ -23,6 +24,49 @@ body{margin:0;padding:0;font-family:Fira Sans,Helvetica Neue,Apple SD Gothic Neo
 `;
 
 SyntaxHighlighter.registerLanguage("javascript", js);
+
+// Updated the list view to display records in a tabular format with column headers
+const ListContainer = styled.div`
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+`;
+
+// Adjusted the table to make it wider
+const Table = styled.table`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: collapse;
+`;
+
+const TableHeader = styled.th`
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+`;
+
+// Added hover effect to table rows
+const TableRow = styled.tr`
+  &:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  &:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+`;
+
+const TableCell = styled.td`
+  border: 1px solid #ddd;
+  padding: 8px;
+`;
 
 const Demo = ({ value, setValue }) => {
   const repositoryLink = "https://github.com/rosskhanas/react-qr-code";
@@ -82,6 +126,15 @@ document.getElementById('root')
     img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
 
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/fetch-qr-data")
+      .then((response) => response.json())
+      .then((data) => setRecords(data))
+      .catch((error) => console.error("Error fetching QR data:", error));
+  }, []);
+
   return (
     <div>
       <GlobalStyle />
@@ -130,10 +183,33 @@ document.getElementById('root')
             />
           </InputContainer>
         </ContentCenter>
-        <SubTitle>Code</SubTitle>
+   {/*      <SubTitle>Code</SubTitle>
         <SyntaxHighlighter language="js" style={syntaxTheme}>
           {codeString}
-        </SyntaxHighlighter>
+        </SyntaxHighlighter> */}
+        <SubTitle>QR Records</SubTitle>
+        <ListContainer>
+          <Table>
+            <thead>
+              <tr>
+                <TableHeader>ID</TableHeader>
+                <TableHeader>Raw Value</TableHeader>
+                <TableHeader>Created At</TableHeader>
+                <TableHeader>Updated At</TableHeader>
+              </tr>
+            </thead>
+            <tbody>
+              {records.map((record, index) => (
+                <TableRow key={index}>
+                  <TableCell>{record.id}</TableCell>
+                  <TableCell>{record.rawTextValue}</TableCell>
+                  <TableCell>{new Date(record.createdAt).toLocaleString()}</TableCell>
+                  <TableCell>{new Date(record.updatedAt).toLocaleString()}</TableCell>
+                </TableRow>
+              ))}
+            </tbody>
+          </Table>
+        </ListContainer>
       </Content>
       <Footer>
         Released under the <Link href={`${repositoryLink}/blob/master/LICENSE`}>MIT license</Link>.{" "}

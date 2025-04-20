@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "react-qr-code-backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,11 +7,10 @@
     "stop-server": "pkill -f 'node index.js'"
   },
   "keywords": [],
-  "author": "",
+  "author": "Emandleni M",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0"
-  }
-}
+  }}
