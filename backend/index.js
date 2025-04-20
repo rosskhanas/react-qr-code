@@ -7,13 +7,21 @@ const cors = require('cors');
 const app = express();
 const PORT = 3001;
 
-// Enable CORS
+// Add graceful shutdown and restart logic
+let server;
+
+// Start the server
+function startServer() {
+  server = app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
+
 app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 
-// Updated error handling and logging for better debugging
 app.post('/save-qr-data', (req, res) => {
   try {
     const { id, rawTextValue, createdAt, updatedAt } = req.body;
@@ -53,7 +61,48 @@ app.post('/save-qr-data', (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Fetch all records from qrData.json
+app.get('/fetch-qr-data', (req, res) => {
+  const qrDataPath = path.join(__dirname, '../demo/src/data/qrData.json');
+
+  if (fs.existsSync(qrDataPath)) {
+    try {
+      const fileContent = fs.readFileSync(qrDataPath, 'utf8');
+      const qrData = JSON.parse(fileContent);
+      console.log('Fetched QR data:', qrData);
+      res.status(200).json(qrData);
+    } catch (err) {
+      console.error('Error reading QR data file:', err);
+      res.status(500).json({ error: 'Error reading QR data file' });
+    }
+  } else {
+    console.warn('QR data file does not exist.');
+    res.status(404).json({ error: 'QR data file not found' });
+  }
 });
+
+// Gracefully stop the server
+function stopServer() {
+  if (server) {
+    server.close(() => {
+      console.log('Server has been stopped gracefully.');
+    });
+  } else {
+    console.log('Server is not running.');
+  }
+}
+
+// Handle process signals for graceful shutdown
+process.on('SIGINT', () => {
+  console.log('Received SIGINT. Shutting down server...');
+  stopServer();
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('Received SIGTERM. Shutting down server...');
+  stopServer();
+  process.exit(0);
+});
+
+startServer();
