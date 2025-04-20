@@ -1,6 +1,7 @@
 .idea
 .log
 .vscode
+.env
 
 lib
 node_modules
