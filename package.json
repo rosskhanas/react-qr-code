@@ -36,7 +36,9 @@
   "types": "types/index.d.ts",
   "dependencies": {
     "prop-types": "^15.8.1",
-    "qr.js": "0.0.0"
+    "qr.js": "0.0.0",
+    "react-native-fs": "^2.20.0",
+    "react-native-permissions": "^5.3.0"
   },
   "peerDependencies": {
     "react": "*"

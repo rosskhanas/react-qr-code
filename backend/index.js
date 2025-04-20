@@ -14,6 +14,7 @@ let server;
 function startServer() {
   server = app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+    console.log('Logs for your project will appear below. Press Ctrl+C to exit.');
   });
 }
 
