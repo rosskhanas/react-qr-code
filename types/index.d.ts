@@ -4,9 +4,10 @@ declare module "react-qr-code" {
   export interface QRCodeProps extends React.SVGProps<SVGSVGElement> {
     value: string;
     size?: number; // defaults to 128
-    bgColor?: string; // defaults to '#FFFFFF'
-    fgColor?: string; // defaults to '#000000'
-    level?: string; // defaults to 'L' , Can be one of 'L,M,H,Q'
+    bgColor?: React.CSSProperties["backgroundColor"]; // defaults to "#FFFFFF"
+    fgColor?: React.CSSProperties["color"]; // defaults to "#000000"
+    level?: "L" | "M" | "H" | "Q"; // defaults to "L"
+    title: string;
   }
 
   class QRCode extends React.Component<QRCodeProps, any> {
