@@ -7,7 +7,7 @@ declare module "react-qr-code" {
     bgColor?: React.CSSProperties["backgroundColor"]; // defaults to "#FFFFFF"
     fgColor?: React.CSSProperties["color"]; // defaults to "#000000"
     level?: "L" | "M" | "H" | "Q"; // defaults to "L"
-    title: string;
+    title?: string;
   }
 
   class QRCode extends React.Component<QRCodeProps, any> {
