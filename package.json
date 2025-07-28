@@ -19,7 +19,7 @@
     "demo:build": "cd demo && npx expo export -p web",
     "demo:deploy": "gh-pages -d demo/dist",
     "clean": "rimraf lib",
-    "lint": "biome check --apply ./src",
+    "lint": "biome check --write ./src",
     "build": "npm run clean && babel src --out-dir lib",
     "release": "release-it"
   },
@@ -42,15 +42,15 @@
     "react": "*"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.7.3",
-    "@release-it/conventional-changelog": "^8.0.1",
+    "@biomejs/biome": "^2.1.2",
+    "@release-it/conventional-changelog": "^10.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "gh-pages": "^6.1.1",
-    "release-it": "^17.3.0",
-    "rimraf": "^5.0.7"
+    "gh-pages": "^6.3.0",
+    "release-it": "^19.0.4",
+    "rimraf": "^6.0.1"
   }
 }
