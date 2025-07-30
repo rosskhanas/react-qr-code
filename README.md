@@ -79,3 +79,6 @@ Adheres to the [official QR spec](https://www.qrcode.com/en/about/version.html) 
 ### License
 
 MIT
+
+## Contributing
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
