@@ -4,6 +4,8 @@ import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 import QRCodeImpl from "qr.js/lib/QRCode";
 import React, { forwardRef } from "react";
 import QRCodeSvg from "./QRCodeSvg";
+import { encodeStringToUtf8Bytes } from "./utils/encodeStringToUtf8Bytes";
+import { bytesToBinaryString } from "./utils/bytesToBinaryString";
 
 const propTypes = {
   bgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -13,29 +15,38 @@ const propTypes = {
   value: PropTypes.string.isRequired,
 };
 
-export const QRCode = forwardRef(({ bgColor = "#FFFFFF", fgColor = "#000000", level = "L", size = 256, value, ...props }, ref) => {
-  // Use type === -1 to automatically pick the best type.
-  const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
-  qrcode.addData(value);
-  qrcode.make();
-  const cells = qrcode.modules;
-  return (
-    <QRCodeSvg
-      {...props}
-      bgColor={bgColor}
-      bgD={cells
-        .map((row, rowIndex) => row.map((cell, cellIndex) => (!cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" "))
-        .join(" ")}
-      fgColor={fgColor}
-      fgD={cells
-        .map((row, rowIndex) => row.map((cell, cellIndex) => (cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" "))
-        .join(" ")}
-      ref={ref}
-      size={size}
-      viewBoxSize={cells.length}
-    />
-  );
-});
+export const QRCode = forwardRef(
+  ({ bgColor = "#FFFFFF", fgColor = "#000000", level = "L", size = 256, value, ...props }, ref) => {
+    // Use type === -1 to automatically pick the best type.
+    const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
+    // Always add data in Byte mode with explicit UTF-8 bytes so non-ASCII text scans correctly
+    const utf8Bytes = encodeStringToUtf8Bytes(value);
+    const binaryString = bytesToBinaryString(utf8Bytes);
+    qrcode.addData(binaryString, "Byte");
+    qrcode.make();
+    const cells = qrcode.modules;
+    return (
+      <QRCodeSvg
+        {...props}
+        bgColor={bgColor}
+        bgD={cells
+          .map((row, rowIndex) =>
+            row.map((cell, cellIndex) => (!cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
+          )
+          .join(" ")}
+        fgColor={fgColor}
+        fgD={cells
+          .map((row, rowIndex) =>
+            row.map((cell, cellIndex) => (cell ? `M ${cellIndex} ${rowIndex} l 1 0 0 1 -1 0 Z` : "")).join(" ")
+          )
+          .join(" ")}
+        ref={ref}
+        size={size}
+        viewBoxSize={cells.length}
+      />
+    );
+  }
+);
 
 QRCode.displayName = "QRCode";
 QRCode.propTypes = propTypes;
