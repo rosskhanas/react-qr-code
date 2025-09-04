@@ -2,8 +2,7 @@
 
 [![npm package](https://badge.fury.io/js/react-qr-code.svg)](https://www.npmjs.org/package/react-qr-code)
 
-A <QRCode /> component for React. This library works with React and React Native (using
-[React Native SVG](https://github.com/react-native-svg/react-native-svg)).
+A <QRCode /> component for React. This library works with React and React Native (using [React Native SVG](https://github.com/react-native-svg/react-native-svg)).
 
 ### Screenshots
 
@@ -24,8 +23,7 @@ A <QRCode /> component for React. This library works with React and React Native
 npm i react-qr-code
 ```
 
-When using this library with React Native, you will also need to
-[have `react-native-svg` installed](https://github.com/react-native-svg/react-native-svg#installation).
+When using this library with React Native, you will also need to [have `react-native-svg` installed](https://github.com/react-native-svg/react-native-svg#installation).
 
 ```
 npm i react-native-svg
@@ -42,8 +40,7 @@ import QRCode from "react-qr-code";
 ReactDOM.render(<QRCode value="hey" />, document.getElementById("Container"));
 ```
 
-Note: If the QR code is likely to appear next to dark objects, you will need to wrap it in a light-colored container to
-preserve the '[quiet zone](https://qrworld.wordpress.com/2011/08/09/the-quiet-zone/)', e.g.
+Note: If the QR code is likely to appear next to dark objects, you will need to wrap it in a light-colored container to preserve the '[quiet zone](https://qrworld.wordpress.com/2011/08/09/the-quiet-zone/)', e.g.
 
 ```javascript
 <div style={{ background: 'white', padding: '16px' }}>
@@ -76,13 +73,11 @@ Responsive QR code example:
 | `title`   | `string`                     |               | web               |
 | `value`   | `string`                     |               | web, ios, android |
 
-Adheres to the [official QR spec](https://www.qrcode.com/en/about/version.html) and can store up to 2953 characters in
-`value`.
+Adheres to the [official QR spec](https://www.qrcode.com/en/about/version.html) and can store up to 2953 characters in `value`.
 
 ### Non-ASCII / UTF-8 text
 
-`react-qr-code` encodes data in UTF-8 byte mode to ensure non-ASCII text (e.g., Korean, Japanese, emoji) renders and
-scans correctly. Just pass a normal JavaScript string:
+`react-qr-code` encodes data in UTF-8 byte mode to ensure non-ASCII text (e.g., Korean, Japanese, emoji) renders and scans correctly. Just pass a normal JavaScript string:
 
 ```javascript
 <QRCode value="한글 테스트 😊" />

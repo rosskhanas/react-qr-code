@@ -97,6 +97,7 @@ document.getElementById('root')
                 setValue(e.target.value);
               }}
             />
+            <div>Non-ASCII / UTF-8 text: 한글 테스트 😊</div>
           </InputContainer>
         </ContentCenter>
         <SubTitle>Code</SubTitle>
