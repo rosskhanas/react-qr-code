@@ -2,23 +2,7 @@ import js from "highlight.js/lib/languages/javascript";
 import React, { Component } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
-import { createGlobalStyle } from "styled-components";
 import QRCode from "./lib";
-import Content from "./web/Content";
-import ContentCenter from "./web/ContentCenter";
-import Footer from "./web/Footer";
-import GitHubImage from "./web/GitHubImage";
-import Header from "./web/Header";
-import Input from "./web/Input";
-import InputContainer from "./web/InputContainer";
-import Link from "./web/Link";
-import Paragraph from "./web/Paragraph";
-import SubTitle from "./web/SubTitle";
-import Title from "./web/Title";
-
-const GlobalStyle = createGlobalStyle`
-body{margin:0;padding:0;font-family:Fira Sans,Helvetica Neue,Apple SD Gothic Neo,Malgun Gothic,Segoe UI,sans-serif;font-weight:200;}
-`;
 
 SyntaxHighlighter.registerLanguage("javascript", js);
 
@@ -36,24 +20,49 @@ document.getElementById('root')
 `;
   return (
     <div>
-      <GlobalStyle />
-      <Link href={repositoryLink}>
-        <GitHubImage
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Fira Sans, Helvetica Neue, Apple SD Gothic Neo, Malgun Gothic, Segoe UI, sans-serif;
+            font-weight: 200;
+            overflow: auto !important;
+          }
+        `,
+        }}
+      />
+      <a href={repositoryLink} style={{ color: "rgb(0, 135, 189)", fontWeight: 400 }}>
+        <img
           alt="Fork me on GitHub"
-          data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-          src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+          src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png"
+          style={{ border: 0, position: "absolute", right: 0, top: 0 }}
         />
-      </Link>
-      <Header>
-        <Title>React QR Code</Title>
-        <Paragraph>Simple QR Code for React and React Native.</Paragraph>
-        <Paragraph>
-          A project by <Link href="https://twitter.com/rosskhanas">Ross Khanas</Link>.
-        </Paragraph>
-      </Header>
-      <Content>
-        <SubTitle>Demo</SubTitle>
-        <ContentCenter>
+      </a>
+      <header style={{ marginBottom: "2rem", textAlign: "center" }}>
+        <h1
+          style={{
+            fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+            fontSize: "46px",
+            marginBottom: "2rem",
+            letterSpacing: "-1px",
+          }}
+        >
+          React QR Code
+        </h1>
+        <p style={{ fontSize: "15px", color: "#111" }}>Simple QR Code for React and React Native.</p>
+        <p style={{ fontSize: "15px", color: "#111" }}>
+          A project by{" "}
+          <a href="https://twitter.com/rosskhanas" style={{ color: "rgb(0, 135, 189)", fontWeight: 400 }}>
+            Ross Khanas
+          </a>
+          .
+        </p>
+      </header>
+      <main style={{ margin: "2rem auto", maxWidth: "650px", padding: "0 25px" }}>
+        <h2 style={{ fontWeight: 400 }}>Demo</h2>
+        <main style={{ textAlign: "center" }}>
           <div>
             <QRCode id="QRCode" title="Custom Title" value={value} />
           </div>
@@ -67,7 +76,7 @@ document.getElementById('root')
               viewBox="0 0 256 256"
             />
           </div>
-          <InputContainer>
+          <div style={{ alignItems: "center", display: "flex", flexDirection: "column" }}>
             <input
               type="button"
               value="Download QR"
@@ -90,25 +99,58 @@ document.getElementById('root')
                 img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
               }}
             />
-            <Input
+            <input
               type="text"
               value={value}
               onChange={(e) => {
                 setValue(e.target.value);
               }}
+              style={{
+                border: "1px solid #ccc",
+                borderRadius: "2px",
+                boxSizing: "border-box",
+                margin: "8px 0",
+                outline: "none",
+                padding: "12px 20px",
+                transition: "all 0.1s ease-in-out",
+              }}
+              onFocus={(e) => {
+                e.target.style.boxShadow = "0 0 5px rgba(81, 203, 238, 1)";
+                e.target.style.border = "1px solid rgba(81, 203, 238, 1)";
+              }}
+              onBlur={(e) => {
+                e.target.style.boxShadow = "none";
+                e.target.style.border = "1px solid #ccc";
+              }}
             />
-            <div>Non-ASCII / UTF-8 text: 한글 테스트 😊</div>
-          </InputContainer>
-        </ContentCenter>
-        <SubTitle>Code</SubTitle>
+            <p style={{ fontSize: "15px", color: "#111" }}>Non-ASCII / UTF-8 text: 한글 테스트 😊</p>
+          </div>
+        </main>
+        <h2 style={{ fontWeight: 400 }}>Code</h2>
         <SyntaxHighlighter language="js" style={syntaxTheme}>
           {codeString}
         </SyntaxHighlighter>
-      </Content>
-      <Footer>
-        Released under the <Link href={`${repositoryLink}/blob/master/LICENSE`}>MIT license</Link>.{" "}
-        <Link href={repositoryLink}>View source</Link>.
-      </Footer>
+      </main>
+      <footer
+        style={{
+          color: "#999",
+          fontSize: "12px",
+          lineHeight: 2,
+          marginBottom: "1rem",
+          marginTop: "3rem",
+          textAlign: "center",
+        }}
+      >
+        Released under the{" "}
+        <a href={`${repositoryLink}/blob/master/LICENSE`} style={{ color: "rgb(0, 135, 189)", fontWeight: 400 }}>
+          MIT license
+        </a>
+        .{" "}
+        <a href={repositoryLink} style={{ color: "rgb(0, 135, 189)", fontWeight: 400 }}>
+          View source
+        </a>
+        .
+      </footer>
     </div>
   );
 };

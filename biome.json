@@ -13,6 +13,9 @@
       "recommended": true,
       "a11y": {
         "noSvgWithoutTitle": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
       }
     }
   }

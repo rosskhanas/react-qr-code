@@ -19,7 +19,6 @@
     "react-native-svg": "^15.11.2",
     "react-native-web": "^0.20.0",
     "react-syntax-highlighter": "^12.2.1",
-    "styled-components": "^5.3.0",
     "@expo/metro-runtime": "~5.0.4"
   },
   "devDependencies": {
