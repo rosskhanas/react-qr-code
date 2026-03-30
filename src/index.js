@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
 // A `qr.js` doesn't handle error level of zero (M) so we need to do it right, thus the deep require.
 import QRCodeImpl from "qr.js/lib/QRCode";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 import QRCodeSvg from "./QRCodeSvg";
 
 function bytesToBinaryString(bytes) {
@@ -22,12 +22,16 @@ const propTypes = {
 };
 
 export const QRCode = forwardRef(({ bgColor = "#FFFFFF", fgColor = "#000000", level = "L", size = 256, value, ...props }, ref) => {
-  const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
-  const utf8Bytes = encodeStringToUtf8Bytes(value);
-  const binaryString = bytesToBinaryString(utf8Bytes);
-  qrcode.addData(binaryString, "Byte");
-  qrcode.make();
-  const cells = qrcode.modules;
+  const cells = useMemo(() => {
+    const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
+    const utf8Bytes = encodeStringToUtf8Bytes(value);
+    const binaryString = bytesToBinaryString(utf8Bytes);
+    qrcode.addData(binaryString, "Byte");
+    qrcode.make();
+
+    return qrcode.modules
+  }, [level, value])
+
   return (
     <QRCodeSvg
       {...props}
