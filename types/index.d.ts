@@ -13,4 +13,6 @@ declare module "react-qr-code" {
   export class QRCode extends React.Component<QRCodeProps, any> {
     render(): React.ReactNode;
   }
+
+  export default QRCode;
 }
