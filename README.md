@@ -98,3 +98,6 @@ No additional encoding is required on your side.
 ### License
 
 MIT
+
+## Contributing
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
