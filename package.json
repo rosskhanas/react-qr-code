@@ -36,10 +36,10 @@
   ],
   "exports": {
     ".": {
+      "react-native": "./lib/index.native.js",
       "import": "./lib/index.mjs",
       "require": "./lib/index.js",
-      "default": "./lib/index.js",
-      "react-native": "./lib/index.native.js"
+      "default": "./lib/index.js"
     }
   },
   "dependencies": {
