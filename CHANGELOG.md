@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.1.0](https://github.com/rosskhanas/react-qr-code/compare/2.0.21...2.1.0) (2026-06-08)
+
 ## [2.0.21](https://github.com/rosskhanas/react-qr-code/compare/2.0.20...2.0.21) (2026-04-29)
 
 ## [2.0.20](https://github.com/rosskhanas/react-qr-code/compare/2.0.19...2.0.20) (2026-04-29)
