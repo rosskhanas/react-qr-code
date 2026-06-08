@@ -16,13 +16,12 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.5",
-    "react-native-svg": "^15.11.2",
+    "react-native-svg": "^15.15.5",
     "react-native-web": "^0.20.0",
-    "react-syntax-highlighter": "^12.2.1",
-    "@expo/metro-runtime": "~5.0.4"
+    "react-syntax-highlighter": "^12.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.29.7"
   },
   "private": true
 }
