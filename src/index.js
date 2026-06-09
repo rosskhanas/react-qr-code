@@ -1,17 +1,9 @@
 import PropTypes from "prop-types";
-import ErrorCorrectLevel from "qr.js/lib/ErrorCorrectLevel";
-// A `qr.js` doesn't handle error level of zero (M) so we need to do it right, thus the deep require.
-import QRCodeImpl from "qr.js/lib/QRCode";
+import qrcode from "qrcode-generator";
 import React, { forwardRef } from "react";
 import QRCodeSvg from "./QRCodeSvg";
 
-function bytesToBinaryString(bytes) {
-  return bytes.map((b) => String.fromCharCode(b & 0xff)).join("");
-}
-
-function encodeStringToUtf8Bytes(input) {
-  return Array.from(new TextEncoder().encode(input));
-}
+qrcode.stringToBytes = (s) => Array.from(new TextEncoder().encode(s));
 
 const propTypes = {
   bgColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -22,12 +14,13 @@ const propTypes = {
 };
 
 export const QRCode = forwardRef(({ bgColor = "#FFFFFF", fgColor = "#000000", level = "L", size = 256, value, ...props }, ref) => {
-  const qrcode = new QRCodeImpl(-1, ErrorCorrectLevel[level]);
-  const utf8Bytes = encodeStringToUtf8Bytes(value);
-  const binaryString = bytesToBinaryString(utf8Bytes);
-  qrcode.addData(binaryString, "Byte");
-  qrcode.make();
-  const cells = qrcode.modules;
+  const qr = qrcode(0, level);
+  qr.addData(value);
+  qr.make();
+  const moduleCount = qr.getModuleCount();
+  const cells = Array.from({ length: moduleCount }, (_, rowIndex) =>
+    Array.from({ length: moduleCount }, (_, colIndex) => qr.isDark(rowIndex, colIndex)),
+  );
   return (
     <QRCodeSvg
       {...props}
@@ -41,7 +34,7 @@ export const QRCode = forwardRef(({ bgColor = "#FFFFFF", fgColor = "#000000", le
         .join(" ")}
       ref={ref}
       size={size}
-      viewBoxSize={cells.length}
+      viewBoxSize={moduleCount}
     />
   );
 });

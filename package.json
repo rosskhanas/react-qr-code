@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "prop-types": "^15.8.1",
-    "qr.js": "0.0.0"
+    "qrcode-generator": "^2.0.4"
   },
   "peerDependencies": {
     "react": "*"
@@ -60,7 +60,6 @@
     "@rollup/plugin-alias": "^6.0.0",
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-commonjs": "^29.0.3",
-    "@rollup/plugin-node-resolve": "^16.0.3",
     "gh-pages": "^6.3.0",
     "release-it": "^19.2.4",
     "rimraf": "^6.1.3",

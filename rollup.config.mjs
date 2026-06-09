@@ -3,11 +3,10 @@ import { fileURLToPath } from "node:url";
 import alias from "@rollup/plugin-alias";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
-import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 export default [
   {
-    external: (id) => ["prop-types", "react"].includes(id) || id.startsWith("qr.js"),
+    external: (id) => ["qrcode-generator", "prop-types", "react"].includes(id),
     input: "src/index.js",
     output: {
       exports: "named",
@@ -17,7 +16,7 @@ export default [
     plugins: [babel({ babelHelpers: "bundled" }), commonjs({ include: /node_modules/ })],
   },
   {
-    external: (id) => ["prop-types", "react"].includes(id) || id.startsWith("qr.js"),
+    external: (id) => ["qrcode-generator", "prop-types", "react"].includes(id),
     input: "src/index.js",
     output: {
       exports: "named",
@@ -27,7 +26,7 @@ export default [
     plugins: [babel({ babelHelpers: "bundled" }), commonjs({ include: /node_modules/ })],
   },
   {
-    external: (id) => ["prop-types", "react", "react-native-svg"].includes(id) || id.startsWith("qr.js"),
+    external: (id) => ["qrcode-generator", "prop-types", "react", "react-native-svg"].includes(id),
     input: "src/index.js",
     output: {
       exports: "named",
