@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.0](https://github.com/rosskhanas/react-qr-code/compare/2.1.1...2.2.0) (2026-06-09)
+
+### Bug Fixes
+
+* add types to package.json exports ([19158d2](https://github.com/rosskhanas/react-qr-code/commit/19158d2b48398a7c2fd046b267daf67ac1c29593))
+
 ## [2.1.1](https://github.com/rosskhanas/react-qr-code/compare/2.1.0...2.1.1) (2026-06-08)
 
 ## [2.1.0](https://github.com/rosskhanas/react-qr-code/compare/2.0.21...2.1.0) (2026-06-08)
