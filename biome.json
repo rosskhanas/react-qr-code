@@ -1,7 +1,9 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "files": {
-    "includes": ["**", "!**/lib"]
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
   },
   "formatter": {
     "indentStyle": "space",
@@ -10,15 +12,12 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "a11y": {
         "noSvgWithoutTitle": "off"
       },
       "correctness": {
         "noUnusedImports": "off"
-      },
-      "security": {
-        "noDangerouslySetInnerHtml": "off"
       }
     }
   }
