@@ -1,5 +1,5 @@
 import js from "highlight.js/lib/languages/javascript";
-import React, { Component } from "react";
+import React from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import syntaxTheme from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
 import QRCode from "./lib";
@@ -100,11 +100,6 @@ document.getElementById('root')
               }}
             />
             <input
-              type="text"
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-              }}
               style={{
                 border: "1px solid #ccc",
                 borderRadius: "2px",
@@ -114,13 +109,18 @@ document.getElementById('root')
                 padding: "12px 20px",
                 transition: "all 0.1s ease-in-out",
               }}
-              onFocus={(e) => {
-                e.target.style.boxShadow = "0 0 5px rgba(81, 203, 238, 1)";
-                e.target.style.border = "1px solid rgba(81, 203, 238, 1)";
-              }}
+              type="text"
+              value={value}
               onBlur={(e) => {
                 e.target.style.boxShadow = "none";
                 e.target.style.border = "1px solid #ccc";
+              }}
+              onChange={(e) => {
+                setValue(e.target.value);
+              }}
+              onFocus={(e) => {
+                e.target.style.boxShadow = "0 0 5px rgba(81, 203, 238, 1)";
+                e.target.style.border = "1px solid rgba(81, 203, 238, 1)";
               }}
             />
             <p style={{ fontSize: "15px", color: "#111" }}>Non-ASCII / UTF-8 text: 한글 테스트 😊</p>

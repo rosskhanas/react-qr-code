@@ -1,0 +1,4 @@
+.github
+**/lib
+
+package-lock.json

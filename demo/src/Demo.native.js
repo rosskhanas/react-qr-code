@@ -16,10 +16,10 @@ const Demo = ({ value, setValue }) => {
           margin: 10,
           padding: 5,
         }}
+        value={value}
         onChangeText={(text) => {
           setValue(text);
         }}
-        value={value}
       />
     </View>
   );

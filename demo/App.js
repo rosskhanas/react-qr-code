@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Demo from "./src/Demo";
 
 function App() {
   const [value, setValue] = useState("Hello, World!");
   return (
     <View style={styles.container}>
-      <Demo value={value} setValue={setValue} />
+      <Demo setValue={setValue} value={value} />
       <StatusBar style="auto" />
     </View>
   );
