@@ -31,6 +31,7 @@ export default [
       },
     },
     rules: {
+      "import/no-extraneous-dependencies": ["error", { devDependencies: ["**/eslint.config.mjs"] }],
       "import/order": ["error", { alphabetize: { caseInsensitive: true, order: "asc" }, "newlines-between": "never" }],
       "react/jsx-sort-props": ["error", { callbacksLast: true }],
       "react/jsx-uses-react": "error",
