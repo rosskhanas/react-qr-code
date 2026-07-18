@@ -18,7 +18,7 @@
     "demo": "cd demo && npm run start",
     "demo:build": "cd demo && npx expo export -p web",
     "demo:deploy": "gh-pages -d demo/dist",
-    "lint": "prettier --write \"**/*.{js,cjs,mjs,jsx,json}\" --log-level warn && eslint --fix \"**/*.{js,cjs,mjs,jsx}\"",
+    "lint": "eslint --fix \"**/*.{js,cjs,mjs,jsx}\" && prettier --write \"**/*.{js,cjs,mjs,jsx,json}\" --log-level warn",
     "build": "rimraf lib && rollup -c",
     "release": "release-it"
   },
