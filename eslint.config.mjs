@@ -31,6 +31,7 @@ export default [
       },
     },
     rules: {
+      "import/named": ["error"],
       "import/no-duplicates": ["error"],
       "import/no-extraneous-dependencies": ["error", { devDependencies: ["**/eslint.config.mjs", "**/rollup.config.mjs"] }],
       "import/order": ["error", { alphabetize: { caseInsensitive: true, order: "asc" }, "newlines-between": "never" }],
